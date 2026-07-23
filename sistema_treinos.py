@@ -200,6 +200,10 @@ cardio_iniciante = TreinoCardio(
     nivel="iniciante"
 )
 
+flexibilidade_iniciante = TreinoFlexibilidade(
+    tempo=40,
+    nivel="iniciante"
+)
 
 forca_intermediario = TreinoForca(
     peso_levantado=80,
@@ -207,6 +211,22 @@ forca_intermediario = TreinoForca(
     nivel="intermediario"
 )
 
+cardio_intermediario = TreinoCardio(
+    tempo=45,
+    intensidade =7,
+    nivel="intermediario"
+)
+
+flexibilidade_intermediario = TreinoFlexibilidade(
+    tempo=60,
+    nivel="intermediario"
+)
+
+forca_avancado = TreinoForca(
+    peso_levantado=100,
+    series=8,
+    nivel="avancado"
+)
 
 cardio_avancado = TreinoCardio(
     tempo=60,
@@ -214,12 +234,10 @@ cardio_avancado = TreinoCardio(
     nivel="avancado"
 )
 
-
-flexibilidade = TreinoFlexibilidade(
-    tempo=40,
-    nivel="iniciante"
+flexibilidade_avancado = TreinoFlexibilidade(
+    tempo=90,
+    nivel="avancado"
 )
-
 
 # Adicionando treinos ao plano semanal
 
@@ -234,7 +252,9 @@ carlos.adicionar_treino(forca_intermediario)
 # Será bloqueado (Carlos tem menos de 1 mês)
 carlos.adicionar_treino(cardio_avancado)
 
-carlos.adicionar_treino(flexibilidade)
+carlos.adicionar_treino(flexibilidade_iniciante)
+#Será bloqueado (Carlos tem menos de 1 mês)
+carlos.adicionar_treino(flexibilidade_avancado)
 
 
 # Mostra o plano final
