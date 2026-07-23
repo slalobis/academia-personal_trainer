@@ -154,16 +154,16 @@ treino1 = TreinoForca(50, 3, "iniciante")
 treino2 = TreinoCardio(25, 5, "iniciante")
 
 # Quarta
-treino3 = TreinoForca(80, 5, "intermediario")  # Será bloqueado (<1 mês)
+treino3 = TreinoForca(80, 5, "intermediario")
 
 # Quinta
-treino4 = TreinoCardio(40, 8, "intermediario") # Será bloqueado (<1 mês)
+treino4 = TreinoCardio(40, 8, "intermediario")
 
 # Sexta
 treino5 = TreinoFlexibilidade(30, "iniciante")
 
 # Sábado
-treino6 = TreinoForca(120, 6, "avancado")      # Será bloqueado
+treino6 = TreinoForca(120, 6, "avancado")# Será bloqueado(menor que 3 meses)
 
 print("")
 # Cadastro dos treinos
