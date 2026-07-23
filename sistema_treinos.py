@@ -183,6 +183,7 @@ class Aluno:
 
 # Carlos possui 0 meses de matrícula
 carlos = Aluno("Carlos", 0)
+ana = Aluno("Ana", 3)
 
 
 # Criando treinos
@@ -251,10 +252,22 @@ carlos.adicionar_treino(forca_intermediario)
 carlos.adicionar_treino(cardio_avancado)
 
 carlos.adicionar_treino(flexibilidade_iniciante)
-
 #Será bloqueado (Carlos tem menos de 1 mês)
 carlos.adicionar_treino(flexibilidade_avancado)
 
 
-# Mostra o plano final
+# Mostra o plano final de carlos
 carlos.mostrar_plano()
+
+ana.adicionar_treino(forca_intermediario)
+ana.adicionar_treino(forca_avancado)
+
+ana.adicionar_treino(cardio_intermediario)
+ana.adicionar_treino(cardio_avancado)
+
+ana.adicionar_treino(flexibilidade_intermediario)
+ana.adicionar_treino(flexibilidade_avancado)
+
+
+# Mostra o plano final de ana
+ana.mostrar_plano()
