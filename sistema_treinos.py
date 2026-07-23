@@ -183,6 +183,8 @@ class Aluno:
 
 # Carlos possui 0 meses de matrícula
 carlos = Aluno("Carlos", 0)
+
+# Ana possui 3 meses de matrícula
 ana = Aluno("Ana", 3)
 
 
