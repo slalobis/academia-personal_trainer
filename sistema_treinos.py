@@ -223,6 +223,8 @@ flexibilidade = TreinoFlexibilidade(
 
 # Adicionando treinos ao plano semanal
 
+print("")
+
 carlos.adicionar_treino(forca_iniciante)
 carlos.adicionar_treino(cardio_iniciante)
 
