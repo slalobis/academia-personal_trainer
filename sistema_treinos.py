@@ -242,7 +242,7 @@ flexibilidade_avancado = TreinoFlexibilidade(
     nivel="avancado"
 )
 
-# Adicionando treinos ao plano semanal
+# Adicionando treinos ao plano semanal de carlos
 
 carlos.adicionar_treino(forca_iniciante)
 carlos.adicionar_treino(cardio_iniciante)
@@ -257,9 +257,11 @@ carlos.adicionar_treino(flexibilidade_iniciante)
 #Será bloqueado (Carlos tem menos de 1 mês)
 carlos.adicionar_treino(flexibilidade_avancado)
 
-
 # Mostra o plano final de carlos
 carlos.mostrar_plano()
+
+
+#adicionando treinos ao plano semanal de ana
 
 ana.adicionar_treino(forca_intermediario)
 ana.adicionar_treino(forca_avancado)
