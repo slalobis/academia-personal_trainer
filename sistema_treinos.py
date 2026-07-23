@@ -1,8 +1,7 @@
 from abc import ABC, abstractmethod
-from datetime import date
 
 # ==========================
-# Classe Abstrata
+# Classe Abstrata Treino
 # ==========================
 
 class Treino(ABC):
@@ -13,7 +12,9 @@ class Treino(ABC):
         nivel = nivel.lower()
 
         if nivel not in self.NIVEIS:
-            raise ValueError("Nível inválido! Use: iniciante, intermediario ou avancado.")
+            raise ValueError(
+                "Nível inválido. Use: iniciante, intermediario ou avancado."
+            )
 
         self.nivel = nivel
 
@@ -23,28 +24,32 @@ class Treino(ABC):
 
 
 # ==========================
-# Classes Filhas
+# Tipos de Treino
 # ==========================
 
 class TreinoForca(Treino):
 
-    def __init__(self, peso, series, nivel):
+    def __init__(self, peso_levantado, series, nivel):
         super().__init__(nivel)
-        self.peso = peso
+
+        self.peso_levantado = peso_levantado
         self.series = series
 
     def calcular_calorias(self):
-        return self.peso * self.series * 0.15
+        # cálculo baseado no peso levantado e séries
+        return self.peso_levantado * self.series * 0.15
 
 
 class TreinoCardio(Treino):
 
     def __init__(self, tempo, intensidade, nivel):
         super().__init__(nivel)
+
         self.tempo = tempo
         self.intensidade = intensidade
 
     def calcular_calorias(self):
+        # cálculo baseado no tempo e intensidade
         return self.tempo * self.intensidade * 8
 
 
@@ -52,12 +57,15 @@ class TreinoFlexibilidade(Treino):
 
     def __init__(self, tempo, nivel):
         super().__init__(nivel)
+
         self.tempo = tempo
 
     def calcular_calorias(self):
+        # Flexibilidade gasta menos calorias
         return self.tempo * 2
 
     def calcular_mobilidade(self):
+        # Apenas flexibilidade possui ganho de mobilidade
         return self.tempo * 1.5
 
 
@@ -73,7 +81,8 @@ class PlanoSemanal:
     def adicionar_treino(self, treino):
         self.treinos.append(treino)
 
-    def calorias_totais(self):
+    def calcular_calorias_semana(self):
+
         total = 0
 
         for treino in self.treinos:
@@ -88,91 +97,143 @@ class PlanoSemanal:
 
 class Aluno:
 
-    def __init__(self, nome, data_matricula):
+    def __init__(self, nome, meses_matriculado):
         self.nome = nome
-        self.data_matricula = data_matricula
+        self.meses_matriculado = meses_matriculado
         self.plano = PlanoSemanal()
 
-    def meses_matriculado(self):
-        dias = (date.today() - self.data_matricula).days
-        return dias / 30
 
     def adicionar_treino(self, treino):
 
-        meses = self.meses_matriculado()
+        # Menos de 1 mês:
+        # só pode fazer treinos iniciantes
+        if self.meses_matriculado < 1:
 
-        # Menos de 1 mês → somente iniciante
-        if meses < 1 and treino.nivel != "iniciante":
-            print(f"{self.nome}: apenas treinos INICIANTES são permitidos.")
-            return
+            if treino.nivel != "iniciante":
+                print(
+                    f"{self.nome} não pode realizar treinos "
+                    "intermediários ou avançados."
+                )
+                return
 
-        # Entre 1 e 3 meses → iniciante e intermediário
-        if 1 <= meses < 3 and treino.nivel == "avancado":
-            print(f"{self.nome}: treinos AVANÇADOS só são permitidos após 3 meses.")
-            return
+
+        # Entre 1 e 3 meses:
+        # pode fazer iniciante e intermediário
+        elif self.meses_matriculado < 3:
+
+            if treino.nivel == "avancado":
+                print(
+                    f"{self.nome} ainda não pode realizar "
+                    "treinos avançados."
+                )
+                return
+
 
         self.plano.adicionar_treino(treino)
-        print("Treino adicionado com sucesso!")
+
+        print(
+            f"Treino {treino.nivel} adicionado "
+            f"para {self.nome}."
+        )
+
 
     def mostrar_plano(self):
 
-        print(f"\n===== Plano semanal de {self.nome} =====")
+        print("\n==============================")
+        print(f"Plano semanal de {self.nome}")
+        print("==============================")
 
-        for i, treino in enumerate(self.plano.treinos, start=1):
+        for indice, treino in enumerate(self.plano.treinos, 1):
 
-            if isinstance(treino, TreinoForca):
-                print(f"{i}. Força ({treino.nivel})")
-                print(f"   Calorias: {treino.calcular_calorias():.2f}")
+            print(
+                f"\nTreino {indice}: "
+                f"{treino.__class__.__name__}"
+            )
 
-            elif isinstance(treino, TreinoCardio):
-                print(f"{i}. Cardio ({treino.nivel})")
-                print(f"   Calorias: {treino.calcular_calorias():.2f}")
+            print(
+                f"Nível: {treino.nivel}"
+            )
 
-            elif isinstance(treino, TreinoFlexibilidade):
-                print(f"{i}. Flexibilidade ({treino.nivel})")
-                print(f"   Calorias: {treino.calcular_calorias():.2f}")
-                print(f"   Ganho de mobilidade: {treino.calcular_mobilidade():.2f}")
+            print(
+                f"Calorias: "
+                f"{treino.calcular_calorias():.2f}"
+            )
 
-        print("-----------------------------------")
-        print(f"Total de calorias da semana: {self.plano.calorias_totais():.2f}")
-        print("-----------------------------------")
+
+            if isinstance(treino, TreinoFlexibilidade):
+
+                print(
+                    f"Ganho de mobilidade: "
+                    f"{treino.calcular_mobilidade():.2f}"
+                )
+
+
+        print("\n------------------------------")
+        print(
+            f"Total semanal de calorias: "
+            f"{self.plano.calcular_calorias_semana():.2f}"
+        )
+        print("------------------------------")
 
 
 # ==========================
-# Exemplo de Uso
+# TESTE DO SISTEMA
 # ==========================
 
-# Aluno matriculado recentemente
-aluno = Aluno("Carlos", date(2026, 4, 10))
 
-# Plano semanal
+# Carlos possui 0 meses de matrícula
+carlos = Aluno("Carlos", 0)
 
-# Segunda
-treino1 = TreinoForca(50, 3, "iniciante")
 
-# Terça
-treino2 = TreinoCardio(25, 5, "iniciante")
+# Criando treinos
 
-# Quarta
-treino3 = TreinoForca(80, 5, "intermediario")
+forca_iniciante = TreinoForca(
+    peso_levantado=50,
+    series=3,
+    nivel="iniciante"
+)
 
-# Quinta
-treino4 = TreinoCardio(40, 8, "intermediario")
 
-# Sexta
-treino5 = TreinoFlexibilidade(30, "iniciante")
+cardio_iniciante = TreinoCardio(
+    tempo=30,
+    intensidade=5,
+    nivel="iniciante"
+)
 
-# Sábado
-treino6 = TreinoForca(120, 6, "avancado")# Será bloqueado(menor que 3 meses)
 
-print("")
-# Cadastro dos treinos
-aluno.adicionar_treino(treino1)
-aluno.adicionar_treino(treino2)
-aluno.adicionar_treino(treino3)
-aluno.adicionar_treino(treino4)
-aluno.adicionar_treino(treino5)
-aluno.adicionar_treino(treino6)
+forca_intermediario = TreinoForca(
+    peso_levantado=80,
+    series=5,
+    nivel="intermediario"
+)
 
-# Exibir plano semanal
-aluno.mostrar_plano()
+
+cardio_avancado = TreinoCardio(
+    tempo=60,
+    intensidade=10,
+    nivel="avancado"
+)
+
+
+flexibilidade = TreinoFlexibilidade(
+    tempo=40,
+    nivel="iniciante"
+)
+
+
+# Adicionando treinos ao plano semanal
+
+carlos.adicionar_treino(forca_iniciante)
+carlos.adicionar_treino(cardio_iniciante)
+
+# Será bloqueado (Carlos tem menos de 1 mês)
+carlos.adicionar_treino(forca_intermediario)
+
+# Será bloqueado (Carlos tem menos de 1 mês)
+carlos.adicionar_treino(cardio_avancado)
+
+carlos.adicionar_treino(flexibilidade)
+
+
+# Mostra o plano final
+carlos.mostrar_plano()
