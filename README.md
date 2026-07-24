@@ -211,7 +211,7 @@ Este projeto foi desenvolvido com fins de estudo para praticar conceitos fundame
 
 ## 👨‍💻 Autores
 
-*João Pedro Rangel
-*João Vitor Gomes
-*Guilherme Silva Dranka
-*Diego Luiz Bernal
+* João Pedro Rangel
+* João Vitor Gomes
+* Guilherme Silva Dranka
+* Diego Luiz Bernal
