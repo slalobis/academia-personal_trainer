@@ -36,7 +36,6 @@ class TreinoForca(Treino):
         self.series = series
 
     def calcular_calorias(self):
-        # cálculo baseado no peso levantado e séries
         return self.peso_levantado * self.series * 0.15
 
 
@@ -49,7 +48,6 @@ class TreinoCardio(Treino):
         self.intensidade = intensidade
 
     def calcular_calorias(self):
-        # cálculo baseado no tempo e intensidade
         return self.tempo * self.intensidade * 8
 
 
@@ -61,11 +59,9 @@ class TreinoFlexibilidade(Treino):
         self.tempo = tempo
 
     def calcular_calorias(self):
-        # Flexibilidade gasta menos calorias
         return self.tempo * 2
 
     def calcular_mobilidade(self):
-        # Apenas flexibilidade possui ganho de mobilidade
         return self.tempo * 1.5
 
 
@@ -75,11 +71,18 @@ class TreinoFlexibilidade(Treino):
 
 class PlanoSemanal:
 
+    LIMITE_TREINOS = 5
+
     def __init__(self):
         self.treinos = []
 
     def adicionar_treino(self, treino):
+
+        if len(self.treinos) >= self.LIMITE_TREINOS:
+            return False
+
         self.treinos.append(treino)
+        return True
 
     def calcular_calorias_semana(self):
 
@@ -102,11 +105,10 @@ class Aluno:
         self.meses_matriculado = meses_matriculado
         self.plano = PlanoSemanal()
 
-
     def adicionar_treino(self, treino):
 
         # Menos de 1 mês:
-        # só pode fazer treinos iniciantes
+        # apenas treinos iniciantes
         if self.meses_matriculado < 1:
 
             if treino.nivel != "iniciante":
@@ -116,9 +118,8 @@ class Aluno:
                 )
                 return
 
-
         # Entre 1 e 3 meses:
-        # pode fazer iniciante e intermediário
+        # iniciante e intermediário
         elif self.meses_matriculado < 3:
 
             if treino.nivel == "avancado":
@@ -128,14 +129,20 @@ class Aluno:
                 )
                 return
 
+        # Adiciona ao plano semanal
+        if self.plano.adicionar_treino(treino):
 
-        self.plano.adicionar_treino(treino)
+            print(
+                f"Treino {treino.nivel} adicionado "
+                f"para {self.nome}."
+            )
 
-        print(
-            f"Treino {treino.nivel} adicionado "
-            f"para {self.nome}."
-        )
+        else:
 
+            print(
+                f"{self.nome} atingiu o limite de "
+                f"{PlanoSemanal.LIMITE_TREINOS} treinos na semana."
+            )
 
     def mostrar_plano(self):
 
@@ -143,30 +150,21 @@ class Aluno:
         print(f"Plano semanal de {self.nome}")
         print("==============================")
 
+        if not self.plano.treinos:
+            print("Nenhum treino cadastrado.")
+            return
+
         for indice, treino in enumerate(self.plano.treinos, 1):
 
-            print(
-                f"\nTreino {indice}: "
-                f"{treino.__class__.__name__}"
-            )
-
-            print(
-                f"Nível: {treino.nivel}"
-            )
-
-            print(
-                f"Calorias: "
-                f"{treino.calcular_calorias():.2f}"
-            )
-
+            print(f"\nTreino {indice}: {treino.__class__.__name__}")
+            print(f"Nível: {treino.nivel}")
+            print(f"Calorias: {treino.calcular_calorias():.2f}")
 
             if isinstance(treino, TreinoFlexibilidade):
-
                 print(
                     f"Ganho de mobilidade: "
                     f"{treino.calcular_mobilidade():.2f}"
                 )
-
 
         print("\n------------------------------")
         print(
@@ -180,98 +178,47 @@ class Aluno:
 # TESTE DO SISTEMA
 # ==========================
 
-
-# Carlos possui 0 meses de matrícula
 carlos = Aluno("Carlos", 0)
-
-# Ana possui 3 meses de matrícula
 ana = Aluno("Ana", 3)
 
+# Treinos
 
-# Criando treinos
+forca_iniciante = TreinoForca(50, 3, "iniciante")
+cardio_iniciante = TreinoCardio(30, 5, "iniciante")
+flexibilidade_iniciante = TreinoFlexibilidade(40, "iniciante")
 
-forca_iniciante = TreinoForca(
-    peso_levantado=50,
-    series=3,
-    nivel="iniciante"
-)
+forca_intermediario = TreinoForca(80, 5, "intermediario")
+cardio_intermediario = TreinoCardio(45, 7, "intermediario")
+flexibilidade_intermediario = TreinoFlexibilidade(60, "intermediario")
 
+forca_avancado = TreinoForca(100, 8, "avancado")
+cardio_avancado = TreinoCardio(60, 10, "avancado")
+flexibilidade_avancado = TreinoFlexibilidade(90, "avancado")
 
-cardio_iniciante = TreinoCardio(
-    tempo=30,
-    intensidade=5,
-    nivel="iniciante"
-)
-
-flexibilidade_iniciante = TreinoFlexibilidade(
-    tempo=40,
-    nivel="iniciante"
-)
-
-forca_intermediario = TreinoForca(
-    peso_levantado=80,
-    series=5,
-    nivel="intermediario"
-)
-
-cardio_intermediario = TreinoCardio(
-    tempo=45,
-    intensidade =7,
-    nivel="intermediario"
-)
-
-flexibilidade_intermediario = TreinoFlexibilidade(
-    tempo=60,
-    nivel="intermediario"
-)
-
-forca_avancado = TreinoForca(
-    peso_levantado=100,
-    series=8,
-    nivel="avancado"
-)
-
-cardio_avancado = TreinoCardio(
-    tempo=60,
-    intensidade=10,
-    nivel="avancado"
-)
-
-flexibilidade_avancado = TreinoFlexibilidade(
-    tempo=90,
-    nivel="avancado"
-)
-
-# Adicionando treinos ao plano semanal de carlos
+# ==========================
+# Carlos
+# ==========================
 
 carlos.adicionar_treino(forca_iniciante)
 carlos.adicionar_treino(cardio_iniciante)
-
-# Será bloqueado (Carlos tem menos de 1 mês)
-carlos.adicionar_treino(forca_intermediario)
-
-# Será bloqueado (Carlos tem menos de 1 mês)
-carlos.adicionar_treino(cardio_avancado)
-
+carlos.adicionar_treino(forca_intermediario)      # Bloqueado
+carlos.adicionar_treino(cardio_avancado)          # Bloqueado
 carlos.adicionar_treino(flexibilidade_iniciante)
-#Será bloqueado (Carlos tem menos de 1 mês)
-carlos.adicionar_treino(flexibilidade_avancado)
+carlos.adicionar_treino(flexibilidade_avancado)   # Bloqueado
 
-# Mostra o plano final de carlos
 carlos.mostrar_plano()
 
-
-#adicionando treinos ao plano semanal de ana
+# ==========================
+# Ana
+# ==========================
 
 ana.adicionar_treino(forca_intermediario)
 ana.adicionar_treino(forca_avancado)
-
 ana.adicionar_treino(cardio_intermediario)
 ana.adicionar_treino(cardio_avancado)
-
 ana.adicionar_treino(flexibilidade_intermediario)
+
+# Excede o limite semanal (6º treino)
 ana.adicionar_treino(flexibilidade_avancado)
 
-
-# Mostra o plano final de ana
 ana.mostrar_plano()
