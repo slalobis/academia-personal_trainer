@@ -21,9 +21,9 @@ Um sistema desenvolvido em **Python** utilizando **Programação Orientada a Obj
 
 # Sobre o Projeto
 
-Este projeto ele simula um sistema de gerenciamento de treinos para a PowerFit Academia, aplicando os principais conceitos da Programação Orientada a Objetos.
+Este projeto simula um sistema de gerenciamento de treinos para a PowerFit Academia, aplicando os principais conceitos da Programação Orientada a Objetos.
 
-Onde que cada aluno vai possuir um plano semanal composto por diferentes tipos de treino, respeitando todas as regras de experiência e limites de treinos por semana.
+Onde cada aluno vai possuir um plano semanal composto por diferentes tipos de treino, respeitando todas as regras de experiência e limites de treinos por semana.
 
 O projeto foi desenvolvido com foco educacional para consolidar conhecimentos de POO em Python.
 
@@ -174,14 +174,14 @@ python sistema_treinos.py
 # Exemplo de Saída
 
 ```text
-Treino iniciante adicionado para Carlos.
-Treino iniciante adicionado para Carlos.
-Carlos não pode realizar treinos intermediários ou avançados.
-Carlos ainda não pode realizar treinos avançados.
-Treino iniciante adicionado para Carlos.
+Treino iniciante adicionado para Diego.
+Treino iniciante adicionado para Diego.
+Diego não pode realizar treinos intermediários ou avançados.
+Diego ainda não pode realizar treinos avançados.
+Treino iniciante adicionado para Diego.
 
 ==============================
-Plano semanal de Carlos
+Plano semanal de Diego
 ==============================
 
 Treino 1: TreinoForca
