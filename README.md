@@ -212,7 +212,7 @@ Total semanal de calorias: 1302.50
 
 ---
 
-# Autores
+# 👨‍💻 Autores
 
 * João Vitor Gomes | Nº 8
 * João Pedro Rangel | Nº 7
