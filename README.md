@@ -19,7 +19,7 @@ Um sistema desenvolvido em **Python** utilizando **Programação Orientada a Obj
 
 ---
 
-# Sobre o Projeto
+# 📖 Sobre o Projeto
 
 Este projeto simula um sistema de gerenciamento de treinos para a PowerFit Academia, aplicando os principais conceitos da Programação Orientada a Objetos.
 
