@@ -1,4 +1,4 @@
-# 🏋️ Sistema de Gerenciamento de Treinos em Python
+# 🏋️ Sistema de Gerenciamento de Treinos
 
 ## 📖 Sobre o projeto
 
