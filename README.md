@@ -21,9 +21,9 @@ Um sistema desenvolvido em **Python** utilizando **Programação Orientada a Obj
 
 # Sobre o Projeto
 
-Este projeto simula um sistema de gerenciamento de treinos para a PowerFit Academia, aplicando os principais conceitos da Programação Orientada a Objetos.
+Este projeto ele simula um sistema de gerenciamento de treinos para a PowerFit Academia, aplicando os principais conceitos da Programação Orientada a Objetos.
 
-Cada aluno possui um plano semanal composto por diferentes tipos de treino, respeitando regras de experiência e limites de treinos por semana.
+Onde que cada aluno vai possuir um plano semanal composto por diferentes tipos de treino, respeitando todas as regras de experiência e limites de treinos por semana.
 
 O projeto foi desenvolvido com foco educacional para consolidar conhecimentos de POO em Python.
 
@@ -88,7 +88,7 @@ Cada classe é responsável por armazenar e manipular seus próprios dados, mant
 
 ### Composição
 
-A classe `Aluno` possui um objeto `PlanoSemanal`, responsável por armazenar todos os treinos cadastrados.
+A classe `Aluno` possui um objeto `PlanoSemanal`, que é responsável por armazenar todos os treinos cadastrados.
 
 ```text
 Aluno
@@ -143,7 +143,7 @@ Caso seja informado um nível inválido, o sistema lança uma exceção (`ValueE
 
 ## Limite semanal
 
-Cada aluno pode realizar no máximo **5 treinos** por semana.
+O Limite Semanal como próprio nome diz, é quantidade de treinos que cada aluno pode realizar, sendo no máximo **5 treinos** por semana.
 
 Ao tentar cadastrar um sexto treino, o sistema impede a operação e informa que o limite foi atingido.
 
