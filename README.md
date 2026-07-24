@@ -209,6 +209,9 @@ Este projeto foi desenvolvido com fins de estudo para praticar conceitos fundame
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 Autores
 
-Desenvolvido como projeto de estudo em Python para aplicação prática dos conceitos de Programação Orientada a Objetos.
+João Pedro Rangel
+João Vitor Gomes
+Guilherme Silva Dranka
+Diego Luiz Bernal
