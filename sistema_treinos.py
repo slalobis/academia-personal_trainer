@@ -158,7 +158,8 @@ class Aluno:
 # TESTE DO SISTEMA
 # ==========================
 
-carlos = Aluno("Carlos", 0)
+diego = Aluno("Diego", 0)
+pedro = Aluno("Pedro, 1.5")
 ana = Aluno("Ana", 3)
 
 # Treinos
@@ -176,17 +177,30 @@ cardio_avancado = TreinoCardio(60, 10, "avancado")
 flexibilidade_avancado = TreinoFlexibilidade(90, "avancado")
 
 # ==========================
-# Carlos
+# Diego
 # ==========================
 
-carlos.adicionar_treino(forca_iniciante)
-carlos.adicionar_treino(cardio_iniciante)
-carlos.adicionar_treino(forca_intermediario)      # Bloqueado (Carlos tem menos de 1 mês de treino)
-carlos.adicionar_treino(cardio_avancado)          # Bloqueado (Carlos tem menos de 3 meses de treino)
-carlos.adicionar_treino(flexibilidade_iniciante)
-carlos.adicionar_treino(flexibilidade_avancado)   # Bloqueado (Carlos tem menos de 3 meses de treino)
+diego.adicionar_treino(forca_iniciante)
+diego.adicionar_treino(cardio_iniciante)
+diego.adicionar_treino(forca_intermediario)      # Bloqueado (Diego tem menos de 1 mês de treino)
+diego.adicionar_treino(cardio_avancado)          # Bloqueado (Diego tem menos de 3 meses de treino)
+diego.adicionar_treino(flexibilidade_iniciante)
+diego.adicionar_treino(flexibilidade_avancado)   # Bloqueado (Diego tem menos de 3 meses de treino)
 
-carlos.mostrar_plano()
+diego.mostrar_plano()
+
+# ==========================
+# Pedro
+# ==========================
+
+pedro.adicionar_treino(forca_intermediario)
+pedro.adicionar_treino(cardio_intermediario)
+pedro.adicionar_treino(flexibilidade_intermediario)      
+pedro.adicionar_treino(forca_avancado)               # Bloqueado (Pedro tem menos de 3 meses de treino)
+pedro.adicionar_treino(flexibilidade_avancado)       # Bloqueado (Pedro tem menos de 3 meses de treino)
+pedro.adicionar_treino(cardio_avancado)              # Bloqueado (Pedro tem menos de 3 meses de treino)
+
+diego.mostrar_plano()
 
 # ==========================
 # Ana
