@@ -1,4 +1,4 @@
-# 🏋️ Sistema de Gerenciamento de Treinos em Python
+# 🏋️ Sistema de Gerenciamento de Treinos
 
 Um sistema desenvolvido em **Python** utilizando **Programação Orientada a Objetos (POO)** para gerenciar treinos de academia. O projeto permite cadastrar alunos, controlar planos semanais de treinamento, validar níveis de experiência e calcular o gasto calórico de diferentes modalidades de exercícios.
 
