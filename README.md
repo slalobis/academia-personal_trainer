@@ -198,7 +198,7 @@ cd seu-repositorio
 ### Execute o programa
 
 ```bash
-python main.py
+python sistema_treinos.py
 ```
 
 ---
