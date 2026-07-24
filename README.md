@@ -31,14 +31,14 @@ O projeto foi desenvolvido com foco educacional para consolidar conhecimentos de
 
 # Funcionalidades
 
-* ✅ Cadastro de alunos
-* ✅ Criação de treinos de diferentes modalidades
-* ✅ Controle de níveis de dificuldade
-* ✅ Restrição de treinos conforme o tempo de matrícula
-* ✅ Limite máximo de treinos semanais
-* ✅ Cálculo automático de calorias
-* ✅ Cálculo de ganho de mobilidade para treinos de flexibilidade
-* ✅ Exibição completa do plano semanal
+* Cadastro de alunos
+* Criação de treinos de diferentes modalidades
+* Controle de níveis de dificuldade
+* Restrição de treinos conforme o tempo de matrícula
+* Limite máximo de treinos semanais
+* Cálculo automático de calorias
+* Cálculo de ganho de mobilidade para treinos de flexibilidade
+* Exibição completa do plano semanal
 
 ---
 
