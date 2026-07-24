@@ -12,9 +12,7 @@ class Treino(ABC):
         nivel = nivel.lower()
 
         if nivel not in self.NIVEIS:
-            raise ValueError(
-                "Nível inválido. Use: iniciante, intermediario ou avancado."
-            )
+            raise ValueError("Nível inválido. Use: iniciante, intermediario ou avancado.")
 
         self.nivel = nivel
 
@@ -112,10 +110,7 @@ class Aluno:
         if self.meses_matriculado < 1:
 
             if treino.nivel != "iniciante":
-                print(
-                    f"{self.nome} não pode realizar treinos "
-                    "intermediários ou avançados."
-                )
+                print(f"{self.nome} não pode realizar treinos intermediários ou avançados.")
                 return
 
         # Entre 1 e 3 meses:
@@ -123,26 +118,17 @@ class Aluno:
         elif self.meses_matriculado < 3:
 
             if treino.nivel == "avancado":
-                print(
-                    f"{self.nome} ainda não pode realizar "
-                    "treinos avançados."
-                )
+                print(f"{self.nome} ainda não pode realizar treinos avançados.")
                 return
 
         # Adiciona ao plano semanal
         if self.plano.adicionar_treino(treino):
 
-            print(
-                f"Treino {treino.nivel} adicionado "
-                f"para {self.nome}."
-            )
+            print(f"Treino {treino.nivel} adicionado para {self.nome}.")
 
         else:
 
-            print(
-                f"{self.nome} atingiu o limite de "
-                f"{PlanoSemanal.LIMITE_TREINOS} treinos na semana."
-            )
+            print(f"{self.nome} atingiu o limite de {PlanoSemanal.LIMITE_TREINOS} treinos na semana.")
 
     def mostrar_plano(self):
 
@@ -161,16 +147,10 @@ class Aluno:
             print(f"Calorias: {treino.calcular_calorias():.2f}")
 
             if isinstance(treino, TreinoFlexibilidade):
-                print(
-                    f"Ganho de mobilidade: "
-                    f"{treino.calcular_mobilidade():.2f}"
-                )
+                print(f"Ganho de mobilidade: {treino.calcular_mobilidade():.2f}")
 
         print("\n------------------------------")
-        print(
-            f"Total semanal de calorias: "
-            f"{self.plano.calcular_calorias_semana():.2f}"
-        )
+        print(f"Total semanal de calorias: {self.plano.calcular_calorias_semana():.2f}")
         print("------------------------------")
 
 
@@ -201,10 +181,10 @@ flexibilidade_avancado = TreinoFlexibilidade(90, "avancado")
 
 carlos.adicionar_treino(forca_iniciante)
 carlos.adicionar_treino(cardio_iniciante)
-carlos.adicionar_treino(forca_intermediario)      # Bloqueado
-carlos.adicionar_treino(cardio_avancado)          # Bloqueado
+carlos.adicionar_treino(forca_intermediario)      # Bloqueado(Carlos tem menos de 1 mês de treino)
+carlos.adicionar_treino(cardio_avancado)          # Bloqueado(Carlos tem menos de 3 meses de treino)
 carlos.adicionar_treino(flexibilidade_iniciante)
-carlos.adicionar_treino(flexibilidade_avancado)   # Bloqueado
+carlos.adicionar_treino(flexibilidade_avancado)   # Bloqueado(Carlos tem menos de 3 meses de treino)
 
 carlos.mostrar_plano()
 
