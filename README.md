@@ -244,29 +244,14 @@ Total semanal de calorias: 1302.50
 
 ---
 
-# 📈 Possíveis Melhorias
-
-Algumas funcionalidades que podem ser implementadas futuramente:
-
-* Persistência de dados em banco de dados (SQLite ou PostgreSQL)
-* Interface gráfica (Tkinter ou PyQt)
-* Interface Web (Flask ou Django)
-* Cadastro de exercícios personalizados
-* Histórico de treinos
-* Geração de relatórios em PDF
-* Sistema de autenticação de usuários
-* Testes automatizados com `pytest`
-* Organização do projeto em múltiplos módulos
-* Integração com APIs de monitoramento físico
-
----
-
 # 👨‍💻 Autores
 
 * João Vitor Gomes
 * João Pedro Rangel
 * Guilherme Silva Dranka
 * Diego Luiz Bernal
+
+---
 
 # Instrutor
 
