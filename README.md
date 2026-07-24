@@ -9,7 +9,6 @@ Um sistema desenvolvido em **Python** utilizando **Programação Orientada a Obj
 * [Sobre o Projeto](#-sobre-o-projeto)
 * [Funcionalidades](#-funcionalidades)
 * [Conceitos de POO Aplicados](#-conceitos-de-poo-aplicados)
-* [Estrutura do Projeto](#-estrutura-do-projeto)
 * [Regras de Negócio](#-regras-de-negócio)
 * [Como Executar](#-como-executar)
 * [Exemplo de Saída](#-exemplo-de-saída)
