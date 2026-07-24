@@ -10,10 +10,12 @@ Um sistema desenvolvido em **Python** utilizando **Programação Orientada a Obj
 * [Funcionalidades](#-funcionalidades)
 * [Conceitos de POO Aplicados](#-conceitos-de-poo-aplicados)
 * [Regras de Negócio](#-regras-de-negócio)
+* [Cálculo das Calorias](#-calculo-das-calorias)
 * [Como Executar](#-como-executar)
 * [Exemplo de Saída](#-exemplo-de-saída)
 * [Tecnologias Utilizadas](#-tecnologias-utilizadas)
 * [Autores](#-autores)
+* [Instrutor](#-instrutor)
 
 ---
 
