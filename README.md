@@ -42,7 +42,7 @@ O projeto foi desenvolvido com foco educacional para consolidar conhecimentos de
 
 ---
 
-# Conceitos de POO Aplicados
+# 🧠 Conceitos de POO Aplicados
 
 O projeto utiliza diversos conceitos fundamentais da Programação Orientada a Objetos.
 
