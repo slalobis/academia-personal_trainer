@@ -181,10 +181,10 @@ flexibilidade_avancado = TreinoFlexibilidade(90, "avancado")
 
 carlos.adicionar_treino(forca_iniciante)
 carlos.adicionar_treino(cardio_iniciante)
-carlos.adicionar_treino(forca_intermediario)      # Bloqueado(Carlos tem menos de 1 mês de treino)
-carlos.adicionar_treino(cardio_avancado)          # Bloqueado(Carlos tem menos de 3 meses de treino)
+carlos.adicionar_treino(forca_intermediario)      # Bloqueado (Carlos tem menos de 1 mês de treino)
+carlos.adicionar_treino(cardio_avancado)          # Bloqueado (Carlos tem menos de 3 meses de treino)
 carlos.adicionar_treino(flexibilidade_iniciante)
-carlos.adicionar_treino(flexibilidade_avancado)   # Bloqueado(Carlos tem menos de 3 meses de treino)
+carlos.adicionar_treino(flexibilidade_avancado)   # Bloqueado (Carlos tem menos de 3 meses de treino)
 
 carlos.mostrar_plano()
 
