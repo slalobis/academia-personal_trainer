@@ -211,7 +211,6 @@ ana.adicionar_treino(forca_avancado)
 ana.adicionar_treino(cardio_intermediario)
 ana.adicionar_treino(cardio_avancado)
 ana.adicionar_treino(flexibilidade_intermediario)
-
-ana.adicionar_treino(flexibilidade_avancado)     # Excede o limite semanal (6º treino)
+ana.adicionar_treino(flexibilidade_avancado)       # Excede o limite semanal (6º treino)
 
 ana.mostrar_plano()
