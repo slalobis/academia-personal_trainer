@@ -246,10 +246,10 @@ Total semanal de calorias: 1302.50
 
 # Autores
 
-* João Vitor Gomes
-* João Pedro Rangel
-* Guilherme Silva Dranka
-* Diego Luiz Bernal
+* João Vitor Gomes | Nº 8
+* João Pedro Rangel | Nº 7
+* Guilherme Silva Dranka | Nº 5
+* Diego Luiz Bernal | Nº 6
 
 ---
 
