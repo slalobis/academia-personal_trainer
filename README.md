@@ -86,38 +86,6 @@ Cada classe é responsável por armazenar e manipular seus próprios dados, mant
 
 ---
 
-### Composição
-
-A classe `Aluno` possui um objeto `PlanoSemanal`, que é responsável por armazenar todos os treinos cadastrados.
-
-```text
-Aluno
- └── PlanoSemanal
-      ├── TreinoForca
-      ├── TreinoCardio
-      └── TreinoFlexibilidade
-```
-
----
-
-# Estrutura do Projeto
-
-```text
-projeto
-│
-├── Treino (Classe Abstrata)
-│   ├── TreinoForca
-│   ├── TreinoCardio
-│   └── TreinoFlexibilidade
-│
-├── PlanoSemanal
-│
-├── Aluno
-│
-└── main.py
-```
-
----
 
 # Regras de Negócio
 
