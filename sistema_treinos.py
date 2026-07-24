@@ -159,7 +159,7 @@ class Aluno:
 # ==========================
 
 diego = Aluno("Diego", 0)
-pedro = Aluno("Pedro, 1.5")
+pedro = Aluno("Pedro", 1.5)
 ana = Aluno("Ana", 3)
 
 # Treinos
@@ -200,7 +200,7 @@ pedro.adicionar_treino(forca_avancado)               # Bloqueado (Pedro tem meno
 pedro.adicionar_treino(flexibilidade_avancado)       # Bloqueado (Pedro tem menos de 3 meses de treino)
 pedro.adicionar_treino(cardio_avancado)              # Bloqueado (Pedro tem menos de 3 meses de treino)
 
-diego.mostrar_plano()
+pedro.mostrar_plano()
 
 # ==========================
 # Ana
