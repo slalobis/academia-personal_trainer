@@ -1,10 +1,10 @@
-# 🏋️ Sistema de Gerenciamento de Treinos
+# Sistema de Gerenciamento de Treinos
 
 Um sistema desenvolvido em **Python** utilizando **Programação Orientada a Objetos (POO)** para gerenciar treinos de academia. O projeto permite cadastrar alunos, controlar planos semanais de treinamento, validar níveis de experiência e calcular o gasto calórico de diferentes modalidades de exercícios.
 
 ---
 
-## 📌 Índice
+## Índice
 
 * [Sobre o Projeto](#-sobre-o-projeto)
 * [Funcionalidades](#-funcionalidades)
@@ -19,7 +19,7 @@ Um sistema desenvolvido em **Python** utilizando **Programação Orientada a Obj
 
 ---
 
-# 📖 Sobre o Projeto
+# Sobre o Projeto
 
 Este projeto simula um sistema de gerenciamento de treinos para a PowerFit Academia, aplicando os principais conceitos da Programação Orientada a Objetos.
 
@@ -29,7 +29,7 @@ O projeto foi desenvolvido com foco educacional para consolidar conhecimentos de
 
 ---
 
-# ✨ Funcionalidades
+# Funcionalidades
 
 * ✅ Cadastro de alunos
 * ✅ Criação de treinos de diferentes modalidades
@@ -42,7 +42,7 @@ O projeto foi desenvolvido com foco educacional para consolidar conhecimentos de
 
 ---
 
-# 🧠 Conceitos de POO Aplicados
+# Conceitos de POO Aplicados
 
 O projeto utiliza diversos conceitos fundamentais da Programação Orientada a Objetos.
 
@@ -100,10 +100,10 @@ Aluno
 
 ---
 
-# 📂 Estrutura do Projeto
+# Estrutura do Projeto
 
 ```text
-📁 projeto
+ projeto
 │
 ├── Treino (Classe Abstrata)
 │   ├── TreinoForca
@@ -119,7 +119,7 @@ Aluno
 
 ---
 
-# 📋 Regras de Negócio
+# Regras de Negócio
 
 ## Níveis disponíveis
 
@@ -149,7 +149,7 @@ Ao tentar cadastrar um sexto treino, o sistema impede a operação e informa que
 
 ---
 
-# 🔥 Cálculo das Calorias
+# Cálculo das Calorias
 
 ### Treino de Força
 
@@ -177,7 +177,7 @@ Mobilidade = Tempo × 1.5
 
 ---
 
-# 🚀 Como Executar
+# Como Executar
 
 ## Pré-requisitos
 
@@ -203,7 +203,7 @@ python main.py
 
 ---
 
-# 💻 Exemplo de Saída
+# Exemplo de Saída
 
 ```text
 Treino iniciante adicionado para Carlos.
@@ -236,7 +236,7 @@ Total semanal de calorias: 1302.50
 
 ---
 
-# 🛠️ Tecnologias Utilizadas
+# Tecnologias Utilizadas
 
 * Python 3
 * Programação Orientada a Objetos (POO)
@@ -244,7 +244,7 @@ Total semanal de calorias: 1302.50
 
 ---
 
-# 👨‍💻 Autores
+# Autores
 
 * João Vitor Gomes
 * João Pedro Rangel
