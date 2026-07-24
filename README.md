@@ -103,7 +103,7 @@ Aluno
 # Estrutura do Projeto
 
 ```text
- projeto
+projeto
 │
 ├── Treino (Classe Abstrata)
 │   ├── TreinoForca
