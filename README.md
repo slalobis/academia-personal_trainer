@@ -7,15 +7,15 @@ Um sistema desenvolvido em **Python** utilizando **Programação Orientada a Obj
 ## Índice
 
 * [Sobre o Projeto](#sobre-o-projeto)
-* [Funcionalidades](#-funcionalidades)
-* [Conceitos de POO Aplicados](#-conceitos-de-poo-aplicados)
-* [Regras de Negócio](#-regras-de-negócio)
-* [Cálculo das Calorias](#-calculo-das-calorias)
-* [Como Executar](#-como-executar)
-* [Exemplo de Saída](#-exemplo-de-saída)
-* [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-* [Autores](#-autores)
-* [Instrutor](#-instrutor)
+* [Funcionalidades](#funcionalidades)
+* [Conceitos de POO Aplicados](#conceitos-de-poo-aplicados)
+* [Regras de Negócio](#regras-de-negócio)
+* [Cálculo das Calorias](#calculo-das-calorias)
+* [Como Executar](#como-executar)
+* [Exemplo de Saída](#exemplo-de-saída)
+* [Tecnologias Utilizadas](#tecnologias-utilizadas)
+* [Autores](#autores)
+* [Instrutor](#instrutor)
 
 ---
 
@@ -42,7 +42,7 @@ O projeto foi desenvolvido com foco educacional para consolidar conhecimentos de
 
 ---
 
-# 🧠 Conceitos de POO Aplicados
+# Conceitos de POO Aplicados
 
 O projeto utiliza diversos conceitos fundamentais da Programação Orientada a Objetos.
 
@@ -212,7 +212,7 @@ Total semanal de calorias: 1302.50
 
 ---
 
-# ✒️ Autores
+# Autores
 
 * João Vitor Gomes | Nº 8
 * João Pedro Rangel | Nº 7
