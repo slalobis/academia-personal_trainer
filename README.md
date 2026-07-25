@@ -6,7 +6,7 @@ Um sistema desenvolvido em **Python** utilizando **Programação Orientada a Obj
 
 ## Índice
 
-* [Sobre o Projeto](#-sobre-o-projeto)
+* [Sobre o Projeto](#sobre-o-projeto)
 * [Funcionalidades](#-funcionalidades)
 * [Conceitos de POO Aplicados](#-conceitos-de-poo-aplicados)
 * [Regras de Negócio](#-regras-de-negócio)
