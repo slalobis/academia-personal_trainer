@@ -14,7 +14,7 @@ Um sistema desenvolvido em **Python** utilizando **Programação Orientada a Obj
 * [Como Executar](#-como-executar)
 * [Exemplo de Saída](#-exemplo-de-saída)
 * [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-* [Autores](#autores)
+* [Autores](#-autores)
 * [Instrutor](#-instrutor)
 
 ---
