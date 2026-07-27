@@ -1,3 +1,6 @@
+from modelos.plano_semanal import PlanoSemanal
+from modelos.treino_flexibilidade import TreinoFlexibilidade
+
 class Aluno:
 
     def __init__(self, nome, meses_matriculado):
