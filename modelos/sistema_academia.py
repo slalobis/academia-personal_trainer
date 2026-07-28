@@ -1,11 +1,11 @@
-from aluno import Aluno
-from instrutor import Instrutor
-from plano_semanal import PlanoSemanal
-from ficha_treino import FichaTreino
+from modelos.aluno import Aluno
+from modelos.instrutor import Instrutor
+from modelos.plano_semanal import PlanoSemanal
+from modelos.ficha_treino import FichaTreino
 
-from treino_forca import TreinoForca
-from treino_cardio import TreinoCardio
-from treino_flexibilidade import TreinoFlexibilidade
+from modelos.treino_forca import TreinoForca
+from modelos.treino_cardio import TreinoCardio
+from modelos.treino_flexibilidade import TreinoFlexibilidade
 
 
 class SistemaAcademia:
