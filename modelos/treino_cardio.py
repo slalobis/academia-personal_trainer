@@ -1,6 +1,7 @@
 from modelos.treino import Treino
+from modelos.avaliavel import Avaliavel
 
-class TreinoCardio(Treino):
+class TreinoCardio(Treino, Avaliavel):
 
     def __init__(self,
                  atividade,
@@ -39,13 +40,16 @@ class TreinoCardio(Treino):
         return self.tempo * fator * 8
 
     def descricao(self):
-
         return (
-            f"Tipo: Cardio\n"
-            f"Atividade: {self.atividade}\n"
-            f"Nível: {self.nivel}\n"
-            f"Tempo: {self.tempo} minutos\n"
-            f"Intensidade: {self.intensidade}\n"
-            f"Calorias queimadas: "
-            f"{self.calcular_calorias():.2f} kcal"
+            f"Treino Cardio: {self.nome} | "
+            f"{self.duracao} minutos "
+            f"na intensidade {self.intensidade}.\n"
+            f"Nível: {self.nivel_dificuldade()}\n"
+            f"{self.recomendacao()}"
         )
+
+    def nivel_dificuldade(self):
+        return "Moderado"
+
+    def recomendacao(self):
+        return "Mantenha-se hidratado durante o treino."
