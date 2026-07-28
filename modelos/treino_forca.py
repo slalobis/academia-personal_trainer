@@ -1,6 +1,7 @@
 from modelos.treino import Treino
+from modelos.avaliavel import Avaliavel
 
-class TreinoForca(Treino):
+class TreinoForca(Treino, Avaliavel):
 
     def __init__(self,
                  exercicio,
@@ -44,3 +45,9 @@ class TreinoForca(Treino):
             f"Nível: {self.nivel_dificuldade()}\n"
             f"{self.recomendacao()}"
         )
+
+    def nivel_dificuldade(self):
+        return "Intenso"
+
+    def recomendacao(self):
+        return "Descanse por 48 horas antes de repetir este treino."
