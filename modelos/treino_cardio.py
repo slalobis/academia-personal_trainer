@@ -1,4 +1,4 @@
-from treino import Treino
+from modelos.treino import Treino
 
 class TreinoCardio(Treino):
 
