@@ -1,13 +1,22 @@
-from modelos.treino import Treino
-from modelos.dificuldade import Dificuldade
+from treino import Treino
 
-class TreinoCardio(Treino, Dificuldade):
+class TreinoCardio(Treino):
 
-    def __init__(self, tempo, intensidade, nivel):
+    def __init__(self,
+                 atividade,
+                 tempo,
+                 intensidade,
+                 nivel):
+
         super().__init__(nivel)
 
+        self.__atividade = atividade
         self.__tempo = tempo
         self.__intensidade = intensidade
+
+    @property
+    def atividade(self):
+        return self.__atividade
 
     @property
     def tempo(self):
@@ -18,9 +27,25 @@ class TreinoCardio(Treino, Dificuldade):
         return self.__intensidade
 
     def calcular_calorias(self):
-        return self.tempo * self.intensidade * 8
+
+        fatores = {
+            "leve": 1,
+            "moderada": 2,
+            "intensa": 3
+        }
+
+        fator = fatores.get(self.intensidade.lower(), 1)
+
+        return self.tempo * fator * 8
 
     def descricao(self):
-        return (f"Treino de Cardio\n"
+
+        return (
+            f"Tipo: Cardio\n"
+            f"Atividade: {self.atividade}\n"
+            f"Nível: {self.nivel}\n"
+            f"Tempo: {self.tempo} minutos\n"
             f"Intensidade: {self.intensidade}\n"
-            f"Tempo: {self.tempo}")
+            f"Calorias queimadas: "
+            f"{self.calcular_calorias():.2f} kcal"
+        )
