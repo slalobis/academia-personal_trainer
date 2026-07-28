@@ -64,6 +64,7 @@ class Aluno:
 
             print(f"\nTreino {indice}: {treino.__class__.__name__}")
             print(f"Nível: {treino.nivel}")
+            print(f"Dificuldade: {treino.calcular_dificuldade()}")
             print(f"Calorias: {treino.calcular_calorias():.2f}")
 
             if isinstance(treino, TreinoFlexibilidade):
