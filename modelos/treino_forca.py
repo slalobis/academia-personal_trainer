@@ -19,3 +19,8 @@ class TreinoForca(Treino, Dificuldade):
 
     def calcular_calorias(self):
         return self.__peso_levantado * self.__series * 0.15
+
+    def descricao(self):
+        return (f"Treino de Força\n"
+            f"Séries: {self.series}\n"
+            f"Peso: {self.peso} kg")
