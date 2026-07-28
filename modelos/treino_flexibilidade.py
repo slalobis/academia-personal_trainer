@@ -16,4 +16,8 @@ class TreinoFlexibilidade(Treino, Dificuldade):
         return self.tempo * 2
 
     def calcular_mobilidade(self):
-        return self.tempo * 1.5
+        return self.tempo * 1.5  
+        
+    def descricao(self):
+        return (f"Treino de Flexibilidade\n"
+            f"Tempo: {self.series}\n")
