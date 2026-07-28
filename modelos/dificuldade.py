@@ -1,11 +1,7 @@
-class Dificuldade:
+from enum import Enum
 
-    def calcular_dificuldade(self):
+class Dificuldade(Enum):
 
-        dificuldades = {
-            "iniciante": "Fácil",
-            "intermediario": "Médio",
-            "avancado": "Difícil"
-        }
-
-        return dificuldades[self.nivel]
+    FACIL = "Fácil"
+    MEDIA = "Média"
+    DIFICIL = "Difícil"
