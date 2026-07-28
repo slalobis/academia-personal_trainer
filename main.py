@@ -1,62 +1,93 @@
-from modelos.aluno import Aluno
+from aluno import Aluno
+from instrutor import Instrutor
+from treino_forca import TreinoForca
+from dificuldade import Dificuldade
+from ficha_treino import FichaTreino
 
-from modelos.treino_forca import TreinoForca
-from modelos.treino_cardio import TreinoCardio
-from modelos.treino_flexibilidade import TreinoFlexibilidade
+# Cadastro do aluno
 
-diego = Aluno("Diego", 0)
-pedro = Aluno("Pedro", 1.5)
-ana = Aluno("Ana", 3)
+nome = input("Nome do aluno: ")
+idade = int(input("Idade: "))
+peso = float(input("Peso: "))
+altura = float(input("Altura: "))
+objetivo = input("Objetivo: ")
 
-# Treinos
+aluno = Aluno(
+    nome,
+    idade,
+    peso,
+    altura,
+    objetivo
+)
 
-forca_iniciante = TreinoForca(50, 3, "iniciante")
-cardio_iniciante = TreinoCardio(30, 5, "iniciante")
-flexibilidade_iniciante = TreinoFlexibilidade(40, "iniciante")
+# Cadastro do instrutor
 
-forca_intermediario = TreinoForca(80, 5, "intermediario")
-cardio_intermediario = TreinoCardio(45, 7, "intermediario")
-flexibilidade_intermediario = TreinoFlexibilidade(60, "intermediario")
+nome_instrutor = input("Nome do instrutor: ")
+cref = input("CREF: ")
 
-forca_avancado = TreinoForca(100, 8, "avancado")
-cardio_avancado = TreinoCardio(60, 10, "avancado")
-flexibilidade_avancado = TreinoFlexibilidade(90, "avancado")
+instrutor = Instrutor(
+    nome_instrutor,
+    cref
+)
 
-# ==========================
-# Diego
-# ==========================
+descanso = int(input("Tempo de descanso (segundos): "))
 
-diego.adicionar_treino(forca_iniciante)
-diego.adicionar_treino(cardio_iniciante)
-diego.adicionar_treino(forca_intermediario)      # Bloqueado (Diego tem menos de 1 mês de treino)
-diego.adicionar_treino(cardio_avancado)          # Bloqueado (Diego tem menos de 3 meses de treino)
-diego.adicionar_treino(flexibilidade_iniciante)
-diego.adicionar_treino(flexibilidade_avancado)   # Bloqueado (Diego tem menos de 3 meses de treino)
+ficha = FichaTreino(
+    aluno,
+    instrutor,
+    descanso
+)
 
-diego.mostrar_plano()
+while True:
 
-# ==========================
-# Pedro
-# ==========================
+    print("\nDias disponíveis")
+    print("Segunda")
+    print("Terça")
+    print("Quarta")
+    print("Quinta")
+    print("Sexta")
 
-pedro.adicionar_treino(forca_intermediario)
-pedro.adicionar_treino(cardio_intermediario)
-pedro.adicionar_treino(flexibilidade_intermediario)      
-pedro.adicionar_treino(forca_avancado)               # Bloqueado (Pedro tem menos de 3 meses de treino)
-pedro.adicionar_treino(flexibilidade_avancado)       # Bloqueado (Pedro tem menos de 3 meses de treino)
-pedro.adicionar_treino(cardio_avancado)              # Bloqueado (Pedro tem menos de 3 meses de treino)
+    dia = input("\nDia do treino (ou fim): ")
 
-pedro.mostrar_plano()
+    if dia.lower() == "fim":
+        break
 
-# ==========================
-# Ana
-# ==========================
+    exercicio = input("Exercício: ")
 
-ana.adicionar_treino(forca_intermediario)
-ana.adicionar_treino(forca_avancado)
-ana.adicionar_treino(cardio_intermediario)
-ana.adicionar_treino(cardio_avancado)
-ana.adicionar_treino(flexibilidade_intermediario)
-ana.adicionar_treino(flexibilidade_avancado)       # Excede o limite semanal (6º treino)
+    series = int(input("Séries: "))
+    repeticoes = int(input("Repetições: "))
+    peso = float(input("Peso (kg): "))
 
-ana.mostrar_plano()
+    nivel = input("Nível (Iniciante/Intermediário/Avançado): ")
+
+    print("\nDificuldade")
+    print("1 - Fácil")
+    print("2 - Média")
+    print("3 - Difícil")
+
+    op = int(input("Escolha: "))
+
+    if op == 1:
+        dificuldade = Dificuldade.FACIL
+    elif op == 2:
+        dificuldade = Dificuldade.MEDIA
+    else:
+        dificuldade = Dificuldade.DIFICIL
+
+    treino = TreinoForca(
+        exercicio,
+        peso,
+        series,
+        repeticoes,
+        nivel,
+        dificuldade
+    )
+
+    ficha.plano.adicionar_exercicio(
+        dia,
+        treino
+    )
+
+print()
+
+ficha.mostrar()
