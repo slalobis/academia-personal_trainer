@@ -24,3 +24,7 @@ class Treino(ABC):
     @abstractmethod
     def calcular_calorias(self):
         pass
+
+    @abstractmethod
+    def descricao(self):
+        pass
