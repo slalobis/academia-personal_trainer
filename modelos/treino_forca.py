@@ -1,4 +1,5 @@
 from modelos.treino import Treino
+from modelos.dificuldade import Dificuldade
 
 class TreinoForca(Treino):
 
