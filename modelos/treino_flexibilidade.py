@@ -1,7 +1,7 @@
 from modelos.treino import Treino
 from modelos.dificuldade import Dificuldade
 
-class TreinoFlexibilidade(Treino):
+class TreinoFlexibilidade(Treino, Dificuldade):
 
     def __init__(self, tempo, nivel):
         super().__init__(nivel)
