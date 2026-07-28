@@ -36,3 +36,9 @@ class TreinoFlexibilidade(Treino, Avaliavel):
             f"Nível: {self.nivel_dificuldade()}\n"
             f"{self.recomendacao()}"
         )
+        
+    def nivel_dificuldade(self):
+        return "Leve"
+
+    def recomendacao(self):
+        return "Realize os alongamentos lentamente e sem ultrapassar seus limites."
