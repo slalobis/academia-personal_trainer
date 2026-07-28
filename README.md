@@ -31,28 +31,6 @@ O sistema permite cadastrar alunos, criar diferentes modalidades de treino, orga
 
 ---
 
-# Estrutura do Projeto
-
-```text
-academia-personal_trainer/
-
-├── main.py
-├── modelos/
-│   ├── aluno.py
-│   ├── avaliavel.py
-│   ├── ficha_treino.py
-│   ├── instrutor.py
-│   ├── plano_semanal.py
-│   ├── sistema_academia.py
-│   ├── treino.py
-│   ├── treino_cardio.py
-│   ├── treino_flexibilidade.py
-│   └── treino_forca.py
-└── README.md
-```
-
----
-
 # Conceitos de POO Aplicados
 
 ## Abstração
