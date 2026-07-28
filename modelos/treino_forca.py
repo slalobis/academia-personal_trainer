@@ -49,4 +49,4 @@ class TreinoForca(Treino, Avaliavel):
         )
 
     def recomendacao(self):
-        return "Descanse por 48 horas antes de repetir este treino."
+        return "Respeite o intervalo entre as séries."
