@@ -1,6 +1,4 @@
 from modelos.plano_semanal import PlanoSemanal
-from modelos.treino_forca import TreinoForca
-from modelos.treino_cardio import TreinoCardio
 from modelos.treino_flexibilidade import TreinoFlexibilidade
 
 class Aluno:
