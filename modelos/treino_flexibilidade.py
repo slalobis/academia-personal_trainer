@@ -1,6 +1,7 @@
 from modelos.treino import Treino
+from modelos.avaliavel import Avaliavel
 
-class TreinoFlexibilidade(Treino):
+class TreinoFlexibilidade(Treino, Avaliavel):
 
     def __init__(self,
                  alongamento,
@@ -29,14 +30,9 @@ class TreinoFlexibilidade(Treino):
         return self.tempo * 1.5
 
     def descricao(self):
-
         return (
-            f"Tipo: Flexibilidade\n"
-            f"Alongamento: {self.alongamento}\n"
-            f"Nível: {self.nivel}\n"
-            f"Tempo: {self.tempo} segundos\n"
-            f"Mobilidade adquirida: "
-            f"{self.calcular_mobilidade():.2f}\n"
-            f"Calorias queimadas: "
-            f"{self.calcular_calorias():.2f} kcal"
+            f"Treino de Flexibilidade: {self.nome} | "
+            f"{self.tempo} minutos de alongamento.\n"
+            f"Nível: {self.nivel_dificuldade()}\n"
+            f"{self.recomendacao()}"
         )
