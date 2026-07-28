@@ -17,6 +17,8 @@ class Treino(ABC):
 
         self.nivel = nivel
 
+    
+
     @abstractmethod
     def calcular_calorias(self):
         pass
