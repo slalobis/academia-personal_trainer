@@ -1,61 +1,115 @@
-from plano_semanal import PlanoSemanal
-
 class FichaTreino:
 
     def __init__(self,
                  aluno,
                  instrutor,
+                 plano,
                  descanso):
 
         self.__aluno = aluno
         self.__instrutor = instrutor
+        self.__plano = plano
         self.__descanso = descanso
-
-        self.__plano = PlanoSemanal()
-
-    @property
-    def plano(self):
-        return self.__plano
 
     def mostrar(self):
 
-        print("="*70)
-        print("                    FICHA DE TREINO")
-        print("="*70)
+        print("\n")
+        print("=" * 70)
+        print(" " * 24 + "FICHA DE TREINO")
+        print("=" * 70)
 
-        print(f"Aluno: {self.__aluno.nome}")
-        print(f"Idade: {self.__aluno.idade}")
-        print(f"Peso: {self.__aluno.peso} kg")
-        print(f"Altura: {self.__aluno.altura} m")
-        print(f"Objetivo: {self.__aluno.objetivo}")
-
+        print(self.__aluno)
         print()
 
-        print(f"Instrutor: {self.__instrutor.nome}")
-        print(f"CREF: {self.__instrutor.cref}")
-
+        print(self.__instrutor)
         print()
 
         print(f"Tempo de descanso: {self.__descanso} segundos")
 
-        print()
+        print("=" * 70)
 
-        for dia, exercicios in self.__plano.dias.items():
+        for dia, treinos in self.__plano.dias.items():
 
-            print("-"*70)
-            print(dia.upper())
-            print("-"*70)
+            print(f"\n{dia.upper()}")
 
-            if len(exercicios) == 0:
-                print("Nenhum exercício cadastrado.\n")
+            if not treinos:
+
+                print("Nenhum treino cadastrado.")
                 continue
 
-            for i, treino in enumerate(exercicios,1):
+            print("-" * 70)
 
-                print(f"{i}. {treino.exercicio}")
-                print(f"   Nível: {treino.nivel}")
-                print(f"   Dificuldade: {treino.dificuldade.value}")
-                print(f"   Séries: {treino.series}")
-                print(f"   Repetições: {treino.repeticoes}")
-                print(f"   Peso: {treino.peso} kg")
+            for indice, treino in enumerate(treinos, start=1):
+
+                print(f"\nTreino {indice}")
                 print()
+
+                print(treino)
+
+                print("-" * 70)
+
+        print("\n" + "=" * 70)
+
+        print(
+            f"TOTAL DE CALORIAS QUEIMADAS NA SEMANA: "
+            f"{self.__plano.calcular_calorias_semana():.2f} kcal"
+        )
+
+        print("=" * 70)class FichaTreino:
+
+    def __init__(self,
+                 aluno,
+                 instrutor,
+                 plano,
+                 descanso):
+
+        self.__aluno = aluno
+        self.__instrutor = instrutor
+        self.__plano = plano
+        self.__descanso = descanso
+
+    def mostrar(self):
+
+        print("\n")
+        print("=" * 70)
+        print(" " * 24 + "FICHA DE TREINO")
+        print("=" * 70)
+
+        print(self.__aluno)
+        print()
+
+        print(self.__instrutor)
+        print()
+
+        print(f"Tempo de descanso: {self.__descanso} segundos")
+
+        print("=" * 70)
+
+        for dia, treinos in self.__plano.dias.items():
+
+            print(f"\n{dia.upper()}")
+
+            if not treinos:
+
+                print("Nenhum treino cadastrado.")
+                continue
+
+            print("-" * 70)
+
+            for indice, treino in enumerate(treinos, start=1):
+
+                print(f"\nTreino {indice}")
+                print()
+
+                print(treino)
+
+                print("-" * 70)
+
+        print("\n" + "=" * 70)
+
+        print(
+            f"TOTAL DE CALORIAS QUEIMADAS NA SEMANA: "
+            f"{self.__plano.calcular_calorias_semana():.2f} kcal"
+        )
+
+        print("=" * 70)
