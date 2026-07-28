@@ -37,14 +37,10 @@ class TreinoForca(Treino):
         return self.peso * self.series * self.repeticoes * 0.15
 
     def descricao(self):
-
         return (
-            f"Tipo: Força\n"
-            f"Exercício: {self.exercicio}\n"
-            f"Nível: {self.nivel}\n"
-            f"Séries: {self.series}\n"
-            f"Repetições: {self.repeticoes}\n"
-            f"Peso: {self.peso} kg\n"
-            f"Calorias queimadas: "
-            f"{self.calcular_calorias():.2f} kcal"
+            f"Treino de Força: {self.nome} | "
+            f"{self.series} séries x {self.repeticoes} repetições "
+            f"com {self.peso} kg.\n"
+            f"Nível: {self.nivel_dificuldade()}\n"
+            f"{self.recomendacao()}"
         )
