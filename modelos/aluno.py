@@ -6,10 +6,23 @@ from modelos.treino_flexibilidade import TreinoFlexibilidade
 class Aluno:
 
     def __init__(self, nome, meses_matriculado):
-        self.nome = nome
-        self.meses_matriculado = meses_matriculado
-        self.plano = PlanoSemanal()
+        self.__nome = nome
+        self.__meses_matriculado = meses_matriculado
+        self.__plano = PlanoSemanal()
 
+    @property
+    def nome(self):
+        return self.__nome
+
+    @property
+    def meses_matriculado(self):
+        return self.__meses_matriculado
+
+    @property
+    def plano(self):
+        return self.__plano
+    
+    
     def adicionar_treino(self, treino):
 
         # Menos de 1 mês:
