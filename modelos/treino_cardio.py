@@ -5,8 +5,16 @@ class TreinoCardio(Treino):
     def __init__(self, tempo, intensidade, nivel):
         super().__init__(nivel)
 
-        self.tempo = tempo
-        self.intensidade = intensidade
+        self.__tempo = tempo
+        self.__intensidade = intensidade
+
+    @property
+    def tempo(self):
+        return self.__tempo
+
+    @property
+    def intensidade(self):
+        return self.__intensidade
 
     def calcular_calorias(self):
         return self.tempo * self.intensidade * 8
