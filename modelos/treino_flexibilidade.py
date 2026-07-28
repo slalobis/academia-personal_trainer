@@ -5,7 +5,11 @@ class TreinoFlexibilidade(Treino):
     def __init__(self, tempo, nivel):
         super().__init__(nivel)
 
-        self.tempo = tempo
+        self.__tempo = tempo
+
+    @property
+    def tempo(self):
+        return self.__tempo
 
     def calcular_calorias(self):
         return self.tempo * 2
