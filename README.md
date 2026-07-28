@@ -217,7 +217,7 @@ Total semanal de calorias: 1302.50
 * João Vitor Gomes | Nº 8
 * João Pedro Rangel | Nº 7
 * Guilherme Silva Dranka | Nº 5
-* Diego Luiz Bernal | Nº 6
+* Diego Luiz Bernal | Nº 4
 
 ---
 
