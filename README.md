@@ -187,10 +187,13 @@ Mobilidade estimada: 45.0
 
 # Autores
 
-Projeto desenvolvido como atividade acadêmica para aplicação dos conceitos de Programação Orientada a Objetos em Python.
+* João Vitor Gomes | Nº 8
+* João Pedro Rangel | Nº 7
+* Guilherme Silva Dranka | Nº 5
+* Diego Luiz Bernal | Nº 6
 
 ---
 
-# Licença
+# Instrutor
 
-Este projeto possui finalidade exclusivamente educacional.
+* Henrique Daniel da Rocha
