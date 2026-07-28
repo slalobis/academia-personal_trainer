@@ -1,62 +1,69 @@
-# Sistema de Gerenciamento de Treinos
+# Sistema de Gerenciamento de Treinos de Academia
 
-Um sistema desenvolvido em **Python** utilizando **Programação Orientada a Objetos (POO)** para gerenciar treinos de academia. O projeto permite cadastrar alunos, controlar planos semanais de treinamento, validar níveis de experiência e calcular o gasto calórico de diferentes modalidades de exercícios.
+Projeto desenvolvido em **Python** utilizando os princípios da **Programação Orientada a Objetos (POO)** para simular o gerenciamento de treinos em uma academia.
 
----
-
-## Índice
-
-* [Sobre o Projeto](#sobre-o-projeto)
-* [Funcionalidades](#funcionalidades)
-* [Conceitos de POO Aplicados](#conceitos-de-poo-aplicados)
-* [Regras de Negócio](#regras-de-negócio)
-* [Cálculo das Calorias](#cálculo-das-calorias)
-* [Como Executar](#como-executar)
-* [Exemplo de Saída](#exemplo-de-saída)
-* [Tecnologias Utilizadas](#tecnologias-utilizadas)
-* [Autores](#autores)
-* [Instrutor](#instrutor)
+O sistema permite cadastrar alunos, criar diferentes modalidades de treino, organizar planos semanais e validar regras de negócio relacionadas ao nível de experiência do aluno.
 
 ---
 
-# Sobre o Projeto
+# Objetivos do Projeto
 
-Este projeto simula um sistema de gerenciamento de treinos para a PowerFit Academia, aplicando os principais conceitos da Programação Orientada a Objetos.
-
-Onde cada aluno vai possuir um plano semanal composto por diferentes tipos de treino, respeitando todas as regras de experiência e limites de treinos por semana.
-
-O projeto foi desenvolvido com foco educacional para consolidar conhecimentos de POO em Python.
+* Aplicar os principais conceitos de Programação Orientada a Objetos;
+* Desenvolver um sistema organizado utilizando múltiplas classes;
+* Implementar regras de negócio reais para controle de treinos;
+* Utilizar abstração, herança, encapsulamento, polimorfismo e interfaces.
 
 ---
 
 # Funcionalidades
 
-* Cadastro de alunos
-* Criação de treinos de diferentes modalidades
-* Controle de níveis de dificuldade
-* Restrição de treinos conforme o tempo de matrícula
-* Limite máximo de treinos semanais
-* Cálculo automático de calorias
-* Cálculo de ganho de mobilidade para treinos de flexibilidade
-* Exibição completa do plano semanal
+* Cadastro de alunos;
+* Cadastro de instrutores;
+* Criação de treinos de força, cardio e flexibilidade;
+* Organização dos treinos em uma ficha de treino;
+* Controle do plano semanal do aluno;
+* Validação do nível de dificuldade dos treinos;
+* Restrição de treinos conforme o tempo de matrícula;
+* Limite máximo de cinco treinos por semana;
+* Cálculo automático de calorias queimadas;
+* Cálculo do ganho de mobilidade em treinos de flexibilidade;
+* Exibição completa das informações cadastradas.
+
+---
+
+# Estrutura do Projeto
+
+```text
+academia-personal_trainer/
+
+├── main.py
+├── modelos/
+│   ├── aluno.py
+│   ├── avaliavel.py
+│   ├── ficha_treino.py
+│   ├── instrutor.py
+│   ├── plano_semanal.py
+│   ├── sistema_academia.py
+│   ├── treino.py
+│   ├── treino_cardio.py
+│   ├── treino_flexibilidade.py
+│   └── treino_forca.py
+└── README.md
+```
 
 ---
 
 # Conceitos de POO Aplicados
 
-O projeto utiliza diversos conceitos fundamentais da Programação Orientada a Objetos.
+## Abstração
 
-### Abstração
+A classe abstrata `Treino` define a estrutura comum para todos os tipos de treino, obrigando suas subclasses a implementarem o método:
 
-A classe abstrata `Treino` define a estrutura comum para todos os tipos de treino e obriga suas subclasses a implementarem o método:
-
-```python
-calcular_calorias()
-```
+* `calcular_calorias()`
 
 ---
 
-### Herança
+## Herança
 
 As classes abaixo herdam da classe `Treino`:
 
@@ -64,32 +71,31 @@ As classes abaixo herdam da classe `Treino`:
 * `TreinoCardio`
 * `TreinoFlexibilidade`
 
-Assim, todas compartilham atributos comuns, como o nível do treino.
+Todas compartilham atributos e comportamentos em comum.
 
 ---
 
-### Polimorfismo
+## Polimorfismo
 
-Cada tipo de treino implementa o método `calcular_calorias()` de forma específica.
-
-| Tipo          | Fórmula                 |
-| ------------- | ----------------------- |
-| Força         | Peso × Séries × 0.15    |
-| Cardio        | Tempo × Intensidade × 8 |
-| Flexibilidade | Tempo × 2               |
+Cada tipo de treino implementa o método `calcular_calorias()` de maneira diferente, respeitando suas próprias características.
 
 ---
 
-### Encapsulamento
+## Encapsulamento
 
-Cada classe é responsável por armazenar e manipular seus próprios dados, mantendo a organização e a segurança das informações.
+Os atributos das classes são privados e acessados através de propriedades (`@property`), garantindo maior segurança e organização dos dados.
 
 ---
 
+## Interface
+
+A interface `Avaliavel` define métodos que podem ser implementados pelas classes responsáveis por realizar avaliações relacionadas aos treinos.
+
+---
 
 # Regras de Negócio
 
-## Níveis disponíveis
+## Níveis permitidos
 
 * Iniciante
 * Intermediário
@@ -99,30 +105,34 @@ Caso seja informado um nível inválido, o sistema lança uma exceção (`ValueE
 
 ---
 
-## Restrições por experiência
+## Tempo de matrícula
+
+O aluno somente pode realizar treinos compatíveis com sua experiência:
 
 | Tempo de matrícula | Treinos permitidos        |
 | ------------------ | ------------------------- |
-| Menos de 1 mês     | Apenas Iniciante          |
+| Menos de 1 mês     | Iniciante                 |
 | Entre 1 e 3 meses  | Iniciante e Intermediário |
-| 3 meses ou mais    | Todos os níveis           |
+| Acima de 3 meses   | Todos os níveis           |
 
 ---
 
 ## Limite semanal
 
-O Limite Semanal como próprio nome diz, é quantidade de treinos que cada aluno pode realizar, sendo no máximo **5 treinos** por semana.
+Cada aluno pode possuir no máximo **cinco treinos** cadastrados em seu plano semanal.
 
-Ao tentar cadastrar um sexto treino, o sistema impede a operação e informa que o limite foi atingido.
+Caso esse limite seja excedido, o sistema impede o cadastro do novo treino.
 
 ---
 
 # Cálculo das Calorias
 
+Cada modalidade possui sua própria forma de cálculo.
+
 ### Treino de Força
 
 ```text
-Calorias = Peso × Séries × 0.15
+Calorias = Peso × Séries × Repetições
 ```
 
 ### Treino Cardio
@@ -137,10 +147,10 @@ Calorias = Tempo × Intensidade × 8
 Calorias = Tempo × 2
 ```
 
-Além disso, os treinos de flexibilidade calculam:
+Além disso:
 
 ```text
-Mobilidade = Tempo × 1.5
+Mobilidade = Tempo × 1,5
 ```
 
 ---
@@ -151,55 +161,41 @@ Mobilidade = Tempo × 1.5
 
 * Python 3.10 ou superior
 
-### Clone o repositório
+## Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
 ```
 
-### Acesse a pasta
+## Acesse a pasta
 
 ```bash
-cd seu-repositorio
+cd SEU-REPOSITORIO
 ```
 
-### Execute o programa
+## Execute o projeto
 
 ```bash
-python sistema_treinos.py
+python main.py
 ```
 
 ---
 
-# Exemplo de Saída
+# Exemplo de Funcionamento
 
 ```text
-Treino iniciante adicionado para Diego.
-Treino iniciante adicionado para Diego.
-Diego não pode realizar treinos intermediários ou avançados.
-Diego ainda não pode realizar treinos avançados.
-Treino iniciante adicionado para Diego.
+Aluno cadastrado com sucesso.
 
-==============================
-Plano semanal de Diego
-==============================
+Treino de Força adicionado ao plano semanal.
 
-Treino 1: TreinoForca
-Nível: iniciante
-Calorias: 22.50
+Treino Cardio adicionado ao plano semanal.
 
-Treino 2: TreinoCardio
-Nível: iniciante
-Calorias: 1200.00
+Plano semanal gerado com sucesso.
 
-Treino 3: TreinoFlexibilidade
-Nível: iniciante
-Calorias: 80.00
-Ganho de mobilidade: 60.00
+Total de calorias calculadas.
 
-------------------------------
-Total semanal de calorias: 1302.50
-------------------------------
+Treino de Flexibilidade:
+Mobilidade estimada: 45.0
 ```
 
 ---
@@ -208,19 +204,15 @@ Total semanal de calorias: 1302.50
 
 * Python 3
 * Programação Orientada a Objetos (POO)
-* Módulo `abc` (Abstract Base Classes)
 
 ---
 
 # Autores
 
-* João Vitor Gomes | Nº 8
-* João Pedro Rangel | Nº 7
-* Guilherme Silva Dranka | Nº 5
-* Diego Luiz Bernal | Nº 6
+Projeto desenvolvido como atividade acadêmica para aplicação dos conceitos de Programação Orientada a Objetos em Python.
 
 ---
 
-# Instrutor
+# Licença
 
-* Henrique Daniel da Rocha
+Este projeto possui finalidade exclusivamente educacional.
