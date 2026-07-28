@@ -19,3 +19,8 @@ class TreinoCardio(Treino, Dificuldade):
 
     def calcular_calorias(self):
         return self.tempo * self.intensidade * 8
+
+    def descricao(self):
+        return (f"Treino de Cardio\n"
+            f"Intensidade: {self.intensidade}\n"
+            f"Tempo: {self.tempo}")
