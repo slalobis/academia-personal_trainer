@@ -34,7 +34,7 @@ class TreinoForca(Treino):
 
     def calcular_calorias(self):
 
-        return self.peso * self.series * 0.15
+        return self.peso * self.series * self.repeticoes * 0.15
 
     def descricao(self):
 
