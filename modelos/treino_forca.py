@@ -1,6 +1,4 @@
 from treino import Treino
-from dificuldade import Dificuldade
-
 
 class TreinoForca(Treino):
 
@@ -9,8 +7,7 @@ class TreinoForca(Treino):
                  peso,
                  series,
                  repeticoes,
-                 nivel,
-                 dificuldade):
+                 nivel):
 
         super().__init__(nivel)
 
@@ -18,7 +15,6 @@ class TreinoForca(Treino):
         self.__peso = peso
         self.__series = series
         self.__repeticoes = repeticoes
-        self.__dificuldade = dificuldade
 
     @property
     def exercicio(self):
@@ -36,14 +32,19 @@ class TreinoForca(Treino):
     def repeticoes(self):
         return self.__repeticoes
 
-    @property
-    def dificuldade(self):
-        return self.__dificuldade
+    def calcular_calorias(self):
+
+        return self.peso * self.series * 0.15
 
     def descricao(self):
 
         return (
-            f"{self.exercicio}\n"
+            f"Tipo: Força\n"
+            f"Exercício: {self.exercicio}\n"
             f"Nível: {self.nivel}\n"
-            f"Dificuldade: {self.dificuldade.value}"
+            f"Séries: {self.series}\n"
+            f"Repetições: {self.repeticoes}\n"
+            f"Peso: {self.peso} kg\n"
+            f"Calorias queimadas: "
+            f"{self.calcular_calorias():.2f} kcal"
         )
