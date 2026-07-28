@@ -1,7 +1,7 @@
 from modelos.treino import Treino
 from modelos.dificuldade import Dificuldade
 
-class TreinoCardio(Treino):
+class TreinoCardio(Treino, Dificuldade):
 
     def __init__(self, tempo, intensidade, nivel):
         super().__init__(nivel)
