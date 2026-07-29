@@ -6,7 +6,7 @@ O projeto simula um sistema utilizado por uma academia para organizar treinos pe
 
 ---
 
-## 📖 Sobre o Projeto
+## Sobre o Projeto
 
 A academia **PowerFit** deseja substituir o controle manual dos treinos por um sistema capaz de organizar os treinos dos alunos e automatizar o cálculo de calorias.
 
