@@ -242,10 +242,10 @@ Total de calorias: 1578.00 kcal
 
 # 👨‍💻 Autores
 
-**João Vitor Gomes Tatsch | Nº8**
-**João Pedro Rangel | Nº7**
-**Guilherme Silva Dranka | Nº5**
-**Diego Luiz Bernal | Nº4**
+- **João Vitor Gomes Tatsch | Nº8**
+- **João Pedro Rangel | Nº7**
+- **Guilherme Silva Dranka | Nº5**
+- **Diego Luiz Bernal | Nº4**
 
 Projeto desenvolvido para a disciplina de **Programação Orientada a Objetos**.
 
