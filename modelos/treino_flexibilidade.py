@@ -3,10 +3,7 @@ from modelos.avaliavel import Avaliavel
 
 class TreinoFlexibilidade(Treino, Avaliavel):
 
-    def __init__(self,
-                 alongamento,
-                 tempo,
-                 nivel):
+    def __init__(self, alongamento, tempo, nivel):
 
         super().__init__(nivel)
 
