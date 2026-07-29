@@ -56,11 +56,37 @@ class Aluno:
 
         return True
 
+    def realizar_treinos(self, lista_treinos):
+        """
+        Executa todos os treinos permitidos para o aluno.
+        """
+
+        for treino in lista_treinos:
+
+            if self.pode_realizar_treino(treino):
+
+                self.plano_semanal.adicionar_treino(treino)
+
+                treino.registrar_execucao(
+                    f"Treino realizado por {self.nome}."
+                )
+
+            else:
+
+                print(
+                    f"\n{self.nome} NÃO pode realizar "
+                    f"{treino.__class__.__name__}"
+                    f" ({treino.nivel_dificuldade()})."
+                )
+
     # -------------------------
     # Método auxiliar
     # -------------------------
 
     def exibir_dados(self):
+        """
+        Exibe as informações básicas do aluno.
+        """
         print("=== Aluno ===")
         print(f"Nome: {self.nome}")
         print(f"Meses de matrícula: {self.meses_matricula}")
