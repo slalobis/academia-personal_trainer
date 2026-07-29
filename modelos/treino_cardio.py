@@ -3,11 +3,7 @@ from modelos.avaliavel import Avaliavel
 
 class TreinoCardio(Treino, Avaliavel):
 
-    def __init__(self,
-                 atividade,
-                 tempo,
-                 intensidade,
-                 nivel):
+    def __init__(self, atividade, tempo, intensidade, nivel):
 
         super().__init__(nivel)
 
