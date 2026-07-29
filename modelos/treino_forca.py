@@ -42,4 +42,5 @@ class TreinoForca(Treino, Monitoramento):
         elif self.peso_levantado < 70:
             return "Intermediário"
 
-        return "Avançado"
+        else:    
+            return "Avançado"
