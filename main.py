@@ -14,7 +14,8 @@ def main():
         Aluno("João Pedro", 12),
         Aluno("Diego", 0),
         Aluno("João Vitor", 5),
-        Aluno("Guilherme", 2)
+        Aluno("Guilherme", 2),
+        Aluno("Pedro", 15)
     ]
 
     # ==========================================
@@ -41,24 +42,6 @@ def main():
         )
     ]
 
-    for treino in treinos_joao_pedro:
-
-        if joao_pedro.pode_realizar_treino(treino):
-
-            joao_pedro.plano_semanal.adicionar_treino(treino)
-
-            treino.registrar_execucao(
-                f"Treino realizado por {joao_pedro.nome}."
-            )
-
-        else:
-
-            print(
-                f"\n{joao_pedro.nome} NÃO pode realizar "
-                f"{treino.__class__.__name__}"
-                f" ({treino.nivel_dificuldade()})."
-            )
-
     # ==========================================
     # Diego
     # ==========================================
@@ -78,30 +61,11 @@ def main():
             intensidade=2
         ),
 
-        # Este treino será recusado
         TreinoFlexibilidade(
             duracao=50,
             nivel_alongamento=9
         )
     ]
-
-    for treino in treinos_diego:
-
-        if diego.pode_realizar_treino(treino):
-
-            diego.plano_semanal.adicionar_treino(treino)
-
-            treino.registrar_execucao(
-                f"Treino realizado por {diego.nome}."
-            )
-
-        else:
-
-            print(
-                f"\n{diego.nome} NÃO pode realizar "
-                f"{treino.__class__.__name__}"
-                f" ({treino.nivel_dificuldade()})."
-            )
 
     # ==========================================
     # João Vitor
@@ -128,65 +92,69 @@ def main():
         )
     ]
 
-    for treino in treinos_joao_vitor:
-
-        if joao_vitor.pode_realizar_treino(treino):
-
-            joao_vitor.plano_semanal.adicionar_treino(treino)
-
-            treino.registrar_execucao(
-                f"Treino realizado por {joao_vitor.nome}."
-            )
-        else:
-
-            print(
-                f"\n{joao_vitor.nome} NÃO pode realizar "
-                f"{treino.__class__.__name__}"
-                f" ({treino.nivel_dificuldade()})."
-            )
-
     # ==========================================
     # Guilherme
     # ==========================================
-    
+
     guilherme = alunos[3]
-    
+
     treinos_guilherme = [
-    
+
         TreinoForca(
             duracao=60,
             peso_levantado=20,
             series=2
         ),
-    
+
         TreinoCardio(
             duracao=25,
             intensidade=5
         ),
-    
+
         TreinoFlexibilidade(
             duracao=15,
             nivel_alongamento=1
         )
     ]
-    
-    for treino in treinos_guilherme:
-    
-        if guilherme.pode_realizar_treino(treino):
-    
-            guilherme.plano_semanal.adicionar_treino(treino)
-    
-            treino.registrar_execucao(
-                    f"Treino realizado por {guilherme.nome}."
-                )
-        else:
-    
-            print(
-                f"\n{guilherme.nome} NÃO pode realizar "
-                f"{treino.__class__.__name__}"
-                f" ({treino.nivel_dificuldade()})."
-            )
-    
+
+    # ==========================================
+    # Pedro
+    # ==========================================
+
+    pedro = alunos[4]
+
+    treinos_pedro = [
+
+        TreinoForca(
+            duracao=60,
+            peso_levantado=90,
+            series=5
+        ),
+
+        TreinoCardio(
+            duracao=30,
+            intensidade=5
+        ),
+
+        TreinoFlexibilidade(
+            duracao=40,
+            nivel_alongamento=7
+        )
+    ]
+
+    # ==========================================
+    # Executando os treinos
+    # ==========================================
+
+    joao_pedro.realizar_treinos(treinos_joao_pedro)
+
+    diego.realizar_treinos(treinos_diego)
+
+    joao_vitor.realizar_treinos(treinos_joao_vitor)
+
+    guilherme.realizar_treinos(treinos_guilherme)
+
+    pedro.realizar_treinos(treinos_pedro)
 
     # ==========================================
     # Relatório dos alunos
