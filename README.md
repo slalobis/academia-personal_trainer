@@ -24,7 +24,7 @@ O sistema permite cadastrar alunos, criar diferentes modalidades de treino, orga
 * Controle do plano semanal do aluno;
 * Validação do nível de dificuldade dos treinos;
 * Restrição de treinos conforme o tempo de matrícula;
-* Limite máximo de cinco treinos por semana;
+* Limite máximo de cinco treinos para cada dia da semana;
 * Cálculo automático de calorias queimadas;
 * Cálculo do ganho de mobilidade em treinos de flexibilidade;
 * Exibição completa das informações cadastradas.
