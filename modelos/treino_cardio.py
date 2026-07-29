@@ -31,4 +31,5 @@ class TreinoCardio(Treino, Monitoramento):
         elif self.intensidade <= 7:
             return "Intermediário"
 
-        return "Avançado"
+        else:
+            return "Avançado"
