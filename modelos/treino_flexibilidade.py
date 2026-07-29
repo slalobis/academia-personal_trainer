@@ -1,4 +1,4 @@
-from modelos.treino import Treino
+from .treino import Treino
 from interfaces.monitoramento import Monitoramento
 
 
