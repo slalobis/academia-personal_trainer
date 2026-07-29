@@ -1,4 +1,4 @@
-# 🏋️ Sistema de Gerenciamento de Treinos
+# Sistema de Gerenciamento de Treinos
 
 Sistema desenvolvido em **Python** utilizando **Programação Orientada a Objetos (POO)** para gerenciar treinos de academia.
 
@@ -16,7 +16,7 @@ O projeto foi desenvolvido aplicando conceitos fundamentais de Programação Ori
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 - Cadastro de alunos.
 - Cadastro de treinos.
@@ -32,7 +32,7 @@ O projeto foi desenvolvido aplicando conceitos fundamentais de Programação Ori
 
 ---
 
-## 📌 Regras de Negócio
+## Regras de Negócio
 
 O sistema segue as seguintes regras:
 
@@ -46,35 +46,9 @@ O sistema segue as seguintes regras:
 
 ---
 
-# 🧱 Estrutura do Projeto
+# Conceitos de POO Aplicados
 
-```text
-academia/
-
-├── main.py
-│
-├── modelos/
-│   ├── __init__.py
-│   ├── aluno.py
-│   ├── plano_semanal.py
-│   ├── treino.py
-│   ├── treino_forca.py
-│   ├── treino_cardio.py
-│   └── treino_flexibilidade.py
-│
-├── interfaces/
-│   ├── __init__.py
-│   └── monitoramento.py
-│
-└── util/
-    └── __init__.py
-```
-
----
-
-# 🧠 Conceitos de POO Aplicados
-
-### ✔ Classe Abstrata
+### Classe Abstrata
 
 A classe `Treino` define a estrutura básica de todos os treinos.
 
@@ -85,7 +59,7 @@ Ela possui dois métodos abstratos:
 
 ---
 
-### ✔ Herança
+### Herança
 
 As classes
 
@@ -97,7 +71,7 @@ herdam da classe `Treino`.
 
 ---
 
-### ✔ Herança Múltipla
+### Herança Múltipla
 
 A classe `TreinoCardio` herda de:
 
@@ -108,7 +82,7 @@ permitindo registrar o histórico das execuções dos treinos.
 
 ---
 
-### ✔ Polimorfismo
+### Polimorfismo
 
 Cada tipo de treino implementa seu próprio cálculo de calorias e nível de dificuldade.
 
@@ -123,7 +97,7 @@ O mesmo método produz resultados diferentes dependendo do tipo de treino.
 
 ---
 
-### ✔ Encapsulamento
+### Encapsulamento
 
 Todos os atributos foram implementados como privados utilizando:
 
@@ -136,37 +110,13 @@ e acessados através de:
 
 ---
 
-### ✔ Collections
+### Collections
 
 Foi utilizada uma lista (`list`) para armazenar todos os treinos cadastrados no plano semanal.
 
 ---
 
-## 📊 Diagrama Simplificado
-
-```text
-                     Treino (ABC)
-                           ▲
-        ┌──────────────────┼──────────────────┐
-        │                  │                  │
-TreinoForca      TreinoCardio      TreinoFlexibilidade
-                         ▲
-                         │
-                  Monitoramento
-
-
-Aluno
-   │
-   ▼
-PlanoSemanal
-   │
-   ▼
-Lista de Treinos
-```
-
----
-
-# 🚀 Como Executar
+# Como Executar
 
 Clone o repositório:
 
@@ -188,7 +138,7 @@ python main.py
 
 ---
 
-# 💻 Exemplo de Saída
+# Exemplo de Saída
 
 ```text
 ========================================
@@ -227,7 +177,7 @@ Total de calorias: 1578.00 kcal
 
 ---
 
-# 🛠 Tecnologias Utilizadas
+# Tecnologias Utilizadas
 
 - Python 3
 - Programação Orientada a Objetos (POO)
@@ -240,13 +190,15 @@ Total de calorias: 1578.00 kcal
 
 ---
 
-# 👨‍💻 Autores
+# Autores
 
 - **João Vitor Gomes Tatsch | Nº8**
 - **João Pedro Rangel | Nº7**
 - **Guilherme Silva Dranka | Nº5**
 - **Diego Luiz Bernal | Nº4**
 
-Projeto desenvolvido para a disciplina de **Programação Orientada a Objetos**.
-
 ---
+
+# Instrutor
+
+- **Henrique Daniel da Rocha**
