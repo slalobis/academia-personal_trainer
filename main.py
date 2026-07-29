@@ -1,62 +1,100 @@
 from modelos.aluno import Aluno
-
+from modelos.plano_semanal import PlanoSemanal
 from modelos.treino_forca import TreinoForca
 from modelos.treino_cardio import TreinoCardio
 from modelos.treino_flexibilidade import TreinoFlexibilidade
 
-diego = Aluno("Diego", 0)
-pedro = Aluno("Pedro", 1.5)
-ana = Aluno("Ana", 3)
 
-# Treinos
+def main():
+    # -------------------------
+    # Cadastro do aluno
+    # -------------------------
+    aluno = Aluno("Diego", 2)
 
-forca_iniciante = TreinoForca(50, 2, 8, "iniciante")
-cardio_iniciante = TreinoCardio(30, 5, "iniciante")
-flexibilidade_iniciante = TreinoFlexibilidade(40, "iniciante")
+    print("=" * 40)
+    aluno.exibir_dados()
+    print("=" * 40)
 
-forca_intermediario = TreinoForca(80, 3, 10, "intermediario")
-cardio_intermediario = TreinoCardio(45, 7, "intermediario")
-flexibilidade_intermediario = TreinoFlexibilidade(60, "intermediario")
+    # -------------------------
+    # Criação do plano semanal
+    # -------------------------
+    plano = PlanoSemanal()
 
-forca_avancado = TreinoForca(100, 4, 12, "avancado",)
-cardio_avancado = TreinoCardio(60, 10, "avancado")
-flexibilidade_avancado = TreinoFlexibilidade(90, "avancado")
+    # -------------------------
+    # Criação dos treinos
+    # -------------------------
+    treino_forca = TreinoForca(
+        duracao=60,
+        peso_levantado=80,
+        series=4
+    )
 
-# ==========================
-# Diego
-# ==========================
+    treino_cardio = TreinoCardio(
+        duracao=30,
+        intensidade=6
+    )
 
-diego.adicionar_treino(forca_iniciante)
-diego.adicionar_treino(cardio_iniciante)
-diego.adicionar_treino(forca_intermediario)      # Bloqueado (Diego tem menos de 1 mês de treino)
-diego.adicionar_treino(cardio_avancado)          # Bloqueado (Diego tem menos de 3 meses de treino)
-diego.adicionar_treino(flexibilidade_iniciante)
-diego.adicionar_treino(flexibilidade_avancado)   # Bloqueado (Diego tem menos de 3 meses de treino)
+    treino_flexibilidade = TreinoFlexibilidade(
+        duracao=45,
+        nivel_alongamento=8
+    )
 
-diego.mostrar_plano()
+    treinos = [
+        treino_forca,
+        treino_cardio,
+        treino_flexibilidade
+    ]
 
-# ==========================
-# Pedro
-# ==========================
+    # -------------------------
+    # Verificação dos treinos
+    # -------------------------
+    print("\nVerificando treinos...\n")
 
-pedro.adicionar_treino(forca_intermediario)
-pedro.adicionar_treino(cardio_intermediario)
-pedro.adicionar_treino(flexibilidade_intermediario)      
-pedro.adicionar_treino(forca_avancado)               # Bloqueado (Pedro tem menos de 3 meses de treino)
-pedro.adicionar_treino(flexibilidade_avancado)       # Bloqueado (Pedro tem menos de 3 meses de treino)
-pedro.adicionar_treino(cardio_avancado)              # Bloqueado (Pedro tem menos de 3 meses de treino)
+    for treino in treinos:
 
-pedro.mostrar_plano()
+        if aluno.pode_realizar_treino(treino):
 
-# ==========================
-# Ana
-# ==========================
+            print(
+                f"{treino.__class__.__name__}: Treino permitido."
+            )
 
-ana.adicionar_treino(forca_intermediario)
-ana.adicionar_treino(forca_avancado)
-ana.adicionar_treino(cardio_intermediario)
-ana.adicionar_treino(cardio_avancado)
-ana.adicionar_treino(flexibilidade_intermediario)
-ana.adicionar_treino(flexibilidade_avancado)       # Excede o limite semanal (6º treino)
+            plano.adicionar_treino(treino)
 
-ana.mostrar_plano()
+            # Apenas TreinoCardio possui monitoramento
+            if isinstance(treino, TreinoCardio):
+                treino.registrar_execucao(
+                    "Treino adicionado ao plano semanal."
+                )
+
+        else:
+
+            print(
+                f"{treino.__class__.__name__}: Treino NÃO permitido."
+            )
+
+    # -------------------------
+    # Plano semanal
+    # -------------------------
+    print("\n")
+    plano.listar_treinos()
+
+    print(
+        f"Quantidade de treinos: "
+        f"{plano.quantidade_treinos()}"
+    )
+
+    print(
+        f"Total de calorias: "
+        f"{plano.calcular_total_calorias():.2f} kcal"
+    )
+
+    # -------------------------
+    # Histórico do cardio
+    # -------------------------
+    print("\n")
+
+    treino_cardio.exibir_historico()
+
+
+if __name__ == "__main__":
+    main()
