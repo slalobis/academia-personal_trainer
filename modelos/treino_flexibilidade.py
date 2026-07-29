@@ -33,4 +33,5 @@ class TreinoFlexibilidade(Treino, Monitoramento):
         elif self.nivel_alongamento <= 7:
             return "Intermediário"
 
-        return "Avançado"
+        else:
+            return "Avançado"
