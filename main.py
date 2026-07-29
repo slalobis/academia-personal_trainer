@@ -145,6 +145,10 @@ def main():
                 f" ({treino.nivel_dificuldade()})."
             )
 
+    # ==========================================
+    # Guilherme
+    # ==========================================
+    
     guilherme = alunos[3]
     
     treinos_guilherme = [
