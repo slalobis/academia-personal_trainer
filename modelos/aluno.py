@@ -1,73 +1,92 @@
-from modelos.plano_semanal import PlanoSemanal
-from modelos.treino_flexibilidade import TreinoFlexibilidade
+from .plano_semanal import PlanoSemanal
+
 
 class Aluno:
+    """
+    Classe que representa um aluno da academia.
+    """
 
-    def __init__(self, nome, meses_matriculado):
-        self.__nome = nome
-        self.__meses_matriculado = meses_matriculado
-        self.__plano = PlanoSemanal()
+    def __init__(self, nome, meses_matricula):
+        self.nome = nome
+        self.meses_matricula = meses_matricula
+        self.__plano_semanal = PlanoSemanal()
+
+    # -------------------------
+    # Encapsulamento
+    # -------------------------
 
     @property
     def nome(self):
         return self.__nome
 
-    @property
-    def meses_matriculado(self):
-        return self.__meses_matriculado
+    @nome.setter
+    def nome(self, valor):
+        if not valor.strip():
+            raise ValueError("O nome não pode ser vazio.")
+        self.__nome = valor
 
     @property
-    def plano(self):
-        return self.__plano
-    
-    
-    def adicionar_treino(self, treino):
+    def meses_matricula(self):
+        return self.__meses_matricula
 
-        # Menos de 1 mês:
-        # apenas treinos iniciantes
-        if self.meses_matriculado < 1:
+    @meses_matricula.setter
+    def meses_matricula(self, valor):
+        if valor < 0:
+            raise ValueError("Os meses de matrícula não podem ser negativos.")
+        self.__meses_matricula = valor
 
-            if treino.nivel != "iniciante":
-                print(f"{self.nome} não pode realizar treinos intermediários ou avançados.")
-                return
+    @property
+    def plano_semanal(self):
+        return self.__plano_semanal
 
-        # Entre 1 e 3 meses:
-        # iniciante e intermediário
-        elif self.meses_matriculado < 3:
+    # -------------------------
+    # Regras de negócio
+    # -------------------------
 
-            if treino.nivel == "avancado":
-                print(f"{self.nome} ainda não pode realizar treinos avançados.")
-                return
+    def pode_realizar_treino(self, treino):
+        """
+        Verifica se o aluno pode realizar determinado treino.
+        """
 
-        # Adiciona ao plano semanal
-        if self.plano.adicionar_treino(treino):
+        if (
+            self.meses_matricula < 1
+            and treino.nivel_dificuldade() == "Avançado"
+        ):
+            return False
 
-            print(f"Treino {treino.nivel} adicionado para {self.nome}.")
+        return True
 
-        else:
+    def realizar_treinos(self, lista_treinos):
+        """
+        Executa todos os treinos permitidos para o aluno.
+        """
 
-            print(f"{self.nome} atingiu o limite de {PlanoSemanal.LIMITE_TREINOS} treinos na semana.")
+        for treino in lista_treinos:
 
-    def mostrar_plano(self):
+            if self.pode_realizar_treino(treino):
 
-        print("\n==============================")
-        print(f"Plano semanal de {self.nome}")
-        print("==============================")
+                self.plano_semanal.adicionar_treino(treino)
 
-        if not self.plano.treinos:
-            print("Nenhum treino cadastrado.")
-            return
+                treino.registrar_execucao(
+                    f"Treino realizado por {self.nome}."
+                )
 
-        for indice, treino in enumerate(self.plano.treinos, 1):
+            else:
 
-            print(f"\nTreino {indice}: {treino.descricao()}")
-            print(f"Nível: {treino.nivel}")
-            print(f"Dificuldade: {treino.calcular_dificuldade()}")
-            print(f"Calorias: {treino.calcular_calorias():.2f}")
+                print(
+                    f"\n{self.nome} NÃO pode realizar "
+                    f"{treino.__class__.__name__}"
+                    f" ({treino.nivel_dificuldade()})."
+                )
 
-            if isinstance(treino, TreinoFlexibilidade):
-                print(f"Ganho de mobilidade: {treino.calcular_mobilidade():.2f}")
+    # -------------------------
+    # Método auxiliar
+    # -------------------------
 
-        print("\n------------------------------")
-        print(f"Total semanal de calorias: {self.plano.calcular_calorias_semana():.2f}")
-        print("------------------------------")
+    def exibir_dados(self):
+        """
+        Exibe as informações básicas do aluno.
+        """
+        print("=== Aluno ===")
+        print(f"Nome: {self.nome}")
+        print(f"Meses de matrícula: {self.meses_matricula}")

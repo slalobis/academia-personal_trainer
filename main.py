@@ -1,62 +1,210 @@
-from modelos.aluno import Aluno
+from modelos import Aluno, TreinoForca, TreinoCardio, TreinoFlexibilidade
 
-from modelos.treino_forca import TreinoForca
-from modelos.treino_cardio import TreinoCardio
-from modelos.treino_flexibilidade import TreinoFlexibilidade
+def main():
 
-diego = Aluno("Diego", 0)
-pedro = Aluno("Pedro", 1.5)
-ana = Aluno("Ana", 3)
+    # ==========================================
+    # Cadastro dos alunos
+    # ==========================================
 
-# Treinos
+    alunos = [
+        Aluno("João Pedro", 12),
+        Aluno("Diego", 0),
+        Aluno("João Vitor", 5),
+        Aluno("Guilherme", 2),
+        Aluno("Pedro", 15)
+    ]
 
-forca_iniciante = TreinoForca(50, 2, 8, "iniciante")
-cardio_iniciante = TreinoCardio(30, 5, "iniciante")
-flexibilidade_iniciante = TreinoFlexibilidade(40, "iniciante")
+    # ==========================================
+    # João Pedro
+    # ==========================================
 
-forca_intermediario = TreinoForca(80, 3, 10, "intermediario")
-cardio_intermediario = TreinoCardio(45, 7, "intermediario")
-flexibilidade_intermediario = TreinoFlexibilidade(60, "intermediario")
+    joao_pedro = alunos[0]
 
-forca_avancado = TreinoForca(100, 4, 12, "avancado",)
-cardio_avancado = TreinoCardio(60, 10, "avancado")
-flexibilidade_avancado = TreinoFlexibilidade(90, "avancado")
+    treinos_joao_pedro = [
+        TreinoForca(
+            duracao=60,
+            peso_levantado=90,
+            series=5
+        ),
 
-# ==========================
-# Diego
-# ==========================
+        TreinoCardio(
+            duracao=30,
+            intensidade=5
+        ),
 
-diego.adicionar_treino(forca_iniciante)
-diego.adicionar_treino(cardio_iniciante)
-diego.adicionar_treino(forca_intermediario)      # Bloqueado (Diego tem menos de 1 mês de treino)
-diego.adicionar_treino(cardio_avancado)          # Bloqueado (Diego tem menos de 3 meses de treino)
-diego.adicionar_treino(flexibilidade_iniciante)
-diego.adicionar_treino(flexibilidade_avancado)   # Bloqueado (Diego tem menos de 3 meses de treino)
+        TreinoFlexibilidade(
+            duracao=40,
+            nivel_alongamento=7
+        )
+    ]
 
-diego.mostrar_plano()
+    # ==========================================
+    # Diego
+    # ==========================================
 
-# ==========================
-# Pedro
-# ==========================
+    diego = alunos[1]
 
-pedro.adicionar_treino(forca_intermediario)
-pedro.adicionar_treino(cardio_intermediario)
-pedro.adicionar_treino(flexibilidade_intermediario)      
-pedro.adicionar_treino(forca_avancado)               # Bloqueado (Pedro tem menos de 3 meses de treino)
-pedro.adicionar_treino(flexibilidade_avancado)       # Bloqueado (Pedro tem menos de 3 meses de treino)
-pedro.adicionar_treino(cardio_avancado)              # Bloqueado (Pedro tem menos de 3 meses de treino)
+    treinos_diego = [
 
-pedro.mostrar_plano()
+        TreinoForca(
+            duracao=40,
+            peso_levantado=20,
+            series=3
+        ),
 
-# ==========================
-# Ana
-# ==========================
+        TreinoCardio(
+            duracao=20,
+            intensidade=2
+        ),
 
-ana.adicionar_treino(forca_intermediario)
-ana.adicionar_treino(forca_avancado)
-ana.adicionar_treino(cardio_intermediario)
-ana.adicionar_treino(cardio_avancado)
-ana.adicionar_treino(flexibilidade_intermediario)
-ana.adicionar_treino(flexibilidade_avancado)       # Excede o limite semanal (6º treino)
+        TreinoFlexibilidade(
+            duracao=50,
+            nivel_alongamento=9
+        )
+    ]
 
-ana.mostrar_plano()
+    # ==========================================
+    # João Vitor
+    # ==========================================
+
+    joao_vitor = alunos[2]
+
+    treinos_joao_vitor = [
+
+        TreinoForca(
+            duracao=50,
+            peso_levantado=50,
+            series=4
+        ),
+
+        TreinoCardio(
+            duracao=45,
+            intensidade=9
+        ),
+
+        TreinoFlexibilidade(
+            duracao=30,
+            nivel_alongamento=3
+        )
+    ]
+
+    # ==========================================
+    # Guilherme
+    # ==========================================
+
+    guilherme = alunos[3]
+
+    treinos_guilherme = [
+
+        TreinoForca(
+            duracao=60,
+            peso_levantado=20,
+            series=2
+        ),
+
+        TreinoCardio(
+            duracao=25,
+            intensidade=5
+        ),
+
+        TreinoFlexibilidade(
+            duracao=15,
+            nivel_alongamento=1
+        )
+    ]
+
+    # ==========================================
+    # Pedro
+    # ==========================================
+
+    pedro = alunos[4]
+
+    treinos_pedro = [
+
+        TreinoForca(
+            duracao=60,
+            peso_levantado=90,
+            series=5
+        ),
+
+        TreinoCardio(
+            duracao=30,
+            intensidade=5
+        ),
+
+        TreinoFlexibilidade(
+            duracao=40,
+            nivel_alongamento=7
+        )
+    ]
+
+    # ==========================================
+    # Executando os treinos
+    # ==========================================
+
+    joao_pedro.realizar_treinos(treinos_joao_pedro)
+
+    diego.realizar_treinos(treinos_diego)
+
+    joao_vitor.realizar_treinos(treinos_joao_vitor)
+
+    guilherme.realizar_treinos(treinos_guilherme)
+
+    pedro.realizar_treinos(treinos_pedro)
+
+    # ==========================================
+    # Relatório dos alunos
+    # ==========================================
+
+    print("\n")
+    print("=" * 50)
+    print("RELATÓRIO DOS ALUNOS")
+    print("=" * 50)
+
+    for aluno in alunos:
+
+        print()
+
+        aluno.exibir_dados()
+
+        print()
+
+        aluno.plano_semanal.listar_treinos()
+
+        print(
+            f"Quantidade de treinos: "
+            f"{aluno.plano_semanal.quantidade_treinos()}"
+        )
+
+        print(
+            f"Total de calorias: "
+            f"{aluno.plano_semanal.calcular_total_calorias():.2f} kcal"
+        )
+
+        print("-" * 50)
+
+    # ==========================================
+    # Histórico de todos os treinos
+    # ==========================================
+
+    print("\n")
+    print("=" * 50)
+    print("HISTÓRICO DOS TREINOS")
+    print("=" * 50)
+
+    for aluno in alunos:
+
+        print(f"\nAluno: {aluno.nome}")
+
+        for treino in aluno.plano_semanal.treinos:
+
+            print(
+                f"\n{treino.__class__.__name__}"
+                f" ({treino.nivel_dificuldade()})"
+            )
+
+            treino.exibir_historico()
+
+
+if __name__ == "__main__":
+    main()

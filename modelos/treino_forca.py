@@ -1,31 +1,45 @@
-from modelos.treino import Treino
-from modelos.dificuldade import Dificuldade
+from .treino import Treino
+from interfaces.monitoramento import Monitoramento
 
-class TreinoForca(Treino, Dificuldade):
 
-    def __init__(self, peso_levantado, series, vezes_levantado, nivel):
-        super().__init__(nivel)
+class TreinoForca(Treino, Monitoramento):
 
-        self.__peso_levantado = peso_levantado
-        self.__series = series
-        self.__vezes_levantado = vezes_levantado
+    def __init__(self, duracao, peso_levantado, series):
+        Treino.__init__(self, duracao)
+        Monitoramento.__init__(self)
+
+        self.peso_levantado = peso_levantado
+        self.series = series
 
     @property
     def peso_levantado(self):
         return self.__peso_levantado
-    
-    @property
-    def vezes_levantado(self):
-        return self.__vezes_levantado
+
+    @peso_levantado.setter
+    def peso_levantado(self, valor):
+        if valor <= 0:
+            raise ValueError("O peso deve ser maior que zero.")
+        self.__peso_levantado = valor
 
     @property
     def series(self):
         return self.__series
 
-    def calcular_calorias(self):
-        return self.__peso_levantado * self.__series * 0.15
+    @series.setter
+    def series(self, valor):
+        if valor <= 0:
+            raise ValueError("O número de séries deve ser maior que zero.")
+        self.__series = valor
 
-    def descricao(self):
-        return (f"Treino de Força\n"
-            f"Séries: {self.series} x {self.vezes_levantado}\n"
-            f"Peso: {self.peso_levantado} kg")
+    def calcular_calorias(self):
+        return self.peso_levantado * self.series * 0.15
+
+    def nivel_dificuldade(self):
+
+        if self.peso_levantado < 30:
+            return "Iniciante"
+
+        elif self.peso_levantado < 70:
+            return "Intermediário"
+
+        return "Avançado"
