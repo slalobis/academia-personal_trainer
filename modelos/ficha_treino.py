@@ -2,11 +2,7 @@ from modelos.avaliavel import Avaliavel
 
 class FichaTreino:
 
-    def __init__(self,
-                 aluno,
-                 instrutor,
-                 plano,
-                 descanso):
+    def __init__(self, aluno, instrutor, plano, descanso):
 
         self.__aluno = aluno
         self.__instrutor = instrutor
