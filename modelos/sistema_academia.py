@@ -49,14 +49,7 @@ class SistemaAcademia:
         objetivo = input("Objetivo: ")
         meses = int(input("Tempo de matrícula (meses): "))
 
-        self.__aluno = Aluno(
-            nome,
-            idade,
-            peso,
-            altura,
-            objetivo,
-            meses
-        )
+        self.__aluno = Aluno(nome, idade, peso, altura, objetivo, meses)
 
     # ==========================
     # Cadastro do instrutor
@@ -105,13 +98,7 @@ class SistemaAcademia:
             series = int(input("Séries: "))
             repeticoes = int(input("Repetições: "))
 
-            return TreinoForca(
-                exercicio,
-                peso,
-                series,
-                repeticoes,
-                nivel
-            )
+            return TreinoForca(exercicio, peso, series, repeticoes, nivel)
 
         elif tipo == 2:
 
@@ -121,23 +108,14 @@ class SistemaAcademia:
                 "Intensidade (Leve/Moderada/Intensa): "
             )
 
-            return TreinoCardio(
-                atividade,
-                tempo,
-                intensidade,
-                nivel
-            )
+            return TreinoCardio(atividade, tempo, intensidade, nivel)
 
         elif tipo == 3:
 
             alongamento = input("Alongamento: ")
             tempo = int(input("Tempo (segundos): "))
 
-            return TreinoFlexibilidade(
-                alongamento,
-                tempo,
-                nivel
-            )
+            return TreinoFlexibilidade(alongamento, tempo, nivel)
 
         return None
 
