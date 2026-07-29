@@ -3,12 +3,7 @@ from modelos.avaliavel import Avaliavel
 
 class TreinoForca(Treino, Avaliavel):
 
-    def __init__(self,
-                 exercicio,
-                 peso,
-                 series,
-                 repeticoes,
-                 nivel):
+    def __init__(self, exercicio, peso, series, repeticoes, nivel):
 
         super().__init__(nivel)
 
