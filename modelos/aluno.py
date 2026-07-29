@@ -1,12 +1,6 @@
 class Aluno:
 
-    def __init__(self,
-                 nome,
-                 idade,
-                 peso,
-                 altura,
-                 objetivo,
-                 meses_matricula):
+    def __init__(self, nome, idade, peso, altura, objetivo, meses_matricula):
 
         self.__nome = nome
         self.__idade = idade
