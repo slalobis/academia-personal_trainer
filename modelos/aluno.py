@@ -1,4 +1,4 @@
-from modelos.plano_semanal import PlanoSemanal
+from .plano_semanal import PlanoSemanal
 
 
 class Aluno:
