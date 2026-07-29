@@ -1,8 +1,4 @@
-from modelos.aluno import Aluno
-from modelos.treino_forca import TreinoForca
-from modelos.treino_cardio import TreinoCardio
-from modelos.treino_flexibilidade import TreinoFlexibilidade
-
+from modelos import Aluno, TreinoForca, TreinoCardio, TreinoFlexibilidade
 
 def main():
 
