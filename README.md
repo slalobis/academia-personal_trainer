@@ -144,7 +144,7 @@ python main.py
 ========================================
 === Aluno ===
 Nome: João Pedro
-Meses de matrícula: 2
+Meses de matrícula: 12
 ========================================
 
 Verificando treinos...
