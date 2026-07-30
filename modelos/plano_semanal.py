@@ -39,7 +39,14 @@ class PlanoSemanal:
             print(f"{indice}. {treino.__class__.__name__}")
             print(f"   Duração: {treino.duracao} minutos")
             print(f"   Dificuldade: {treino.nivel_dificuldade()}")
-            print(f"   Calorias: {treino.calcular_calorias():.2f} kcal\n")
+            print(f"   Calorias: {treino.calcular_calorias():.2f} kcal")
+            # Tenta calcular a mobilidade sem quebrar o código
+            try:
+                print(f"   Ganho de mobilidade: {treino.calcular_mobilidade():.2f}\n")
+            except AttributeError:
+                # Treinos que não têm mobilidade mostram nada
+                print()
+
 
     def calcular_total_calorias(self):
         """
