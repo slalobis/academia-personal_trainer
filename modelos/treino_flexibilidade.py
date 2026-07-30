@@ -25,6 +25,9 @@ class TreinoFlexibilidade(Treino, Monitoramento):
     def calcular_calorias(self):
         return self.duracao * 2
 
+    def calcular_mobilidade(self):
+        return self.duracao * 1.5  
+
     def nivel_dificuldade(self):
 
         if self.nivel_alongamento <= 3:
