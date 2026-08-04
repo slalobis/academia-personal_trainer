@@ -205,9 +205,9 @@ def main():
 
             treino.exibir_historico()
 
-# ==========================================
-# Total de calorias da academia na semana
-# ==========================================
+    # ==========================================
+    # Total de calorias da academia na semana
+    # ==========================================
 
     total_academia = 0
 
