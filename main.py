@@ -205,6 +205,22 @@ def main():
 
             treino.exibir_historico()
 
+# ==========================================
+# Total de calorias da academia na semana
+# ==========================================
+
+    total_academia = 0
+
+    for aluno in alunos:
+        total_academia += aluno.plano_semanal.calcular_total_calorias()
+
+    print("\n")
+    print("=" * 50)
+    print("TOTAL DE CALORIAS DA ACADEMIA")
+    print("=" * 50)
+    print(
+        f"\nCalorias gastas por todos os alunos: {total_academia:.2f} kcal\n"
+    )
 
 if __name__ == "__main__":
     main()
